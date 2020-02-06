@@ -1,0 +1,79 @@
+h1 {
+  font-family: "Cambon";
+  font-size: 70px;
+  line-height: 82px;
+  text-align: center;
+}
+
+h2 {
+  font-family: "Cambon";
+  font-size: 45px;
+  line-height: 59px;
+  text-align: center;
+}
+
+h3 {
+  font-family: "Cambon";
+  font-size: 35px;
+  line-height: 45px;
+  text-align: center;
+}
+
+p {
+  font-family: "Muli", sans-serif;
+  font-size: 17px;
+  line-height: 29px;
+  text-align: center;
+}
+
+.content-padding {
+  padding: 0 6.6%;
+}
+
+.font--cb {
+  font-family: "Cambon";
+}
+
+.font--ml {
+  font-family: "Muli", sans-serif;
+}
+
+@media (min-width: $screen-md) {
+  h1 {
+    font-size: 100px;
+    line-height: 103px;
+  }
+
+  h2 {
+    font-size: 50px;
+    line-height: 66px;
+  }
+
+  h3 {
+    font-size: 40px;
+    line-height: 52px;
+  }
+
+  p {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 31px;
+  }
+}
+
+@media (min-width: $screen-md) and (max-width: #{$screen-lg - 1px}) {
+  .content-padding {
+    padding: 0 26%;
+  }
+}
+
+@media (min-width: $screen-lg) {
+  h1 {
+    font-size: 130px;
+    line-height: 170px;
+  }
+
+  .content-padding {
+    padding: 0 9.7%;
+  }
+}
