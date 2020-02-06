@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import $ from "jquery";
 
 // images
 import Logo from "images/logo.png";
@@ -6,7 +7,10 @@ import Logo from "images/logo.png";
 class NewcoSite extends Component {
   renderSectionOne() {
     return (
-      <div className="newco__section-1 content-padding">
+      <div
+        className="newco__section-1 content-padding panel"
+        data-color="green"
+      >
         <div className="newco__header-container newco__header-container--1">
           <h1 className="newco__h1">Builds, better</h1>
           <p className="newco__p newco__p--1">
@@ -22,7 +26,7 @@ class NewcoSite extends Component {
 
   renderSectionTwo() {
     return (
-      <div className="newco__section-2 content-padding">
+      <div className="newco__section-2 content-padding panel" data-color="blue">
         <div className="newco__header-container newco__header-container--2">
           <h2 className="newco__h2">We work with founders from Day 0</h2>
           <p>
@@ -36,7 +40,10 @@ class NewcoSite extends Component {
 
   renderSectionThree() {
     return (
-      <div className="newco__section-3 content-padding">
+      <div
+        className="newco__section-3 content-padding panel"
+        data-color="white"
+      >
         <h3 className="newco__section-3__h3">We're a team of...</h3>
         <p>
           who pair our startup experience with the knowledge base that IAC has
@@ -48,7 +55,10 @@ class NewcoSite extends Component {
 
   renderSectionFour() {
     return (
-      <div className="newco__section-4 content-padding">
+      <div
+        className="newco__section-4 content-padding panel"
+        data-color="purple"
+      >
         <div className="newco__header-container newco__header-container--4">
           <h2 className="newco__h2">
             We minimize distractions and maximize efficiency so great founders
@@ -61,7 +71,10 @@ class NewcoSite extends Component {
 
   renderSectionFive() {
     return (
-      <div className="newco__section-5 content-padding">
+      <div
+        className="newco__section-5 content-padding panel"
+        data-color="blush"
+      >
         <div className="newco__header-container newco__header-container--5">
           <div className="newco__contact">Contact Us</div>
         </div>
@@ -85,6 +98,40 @@ class NewcoSite extends Component {
         {this.renderSectionFive()}
       </div>
     );
+  }
+
+  componentDidMount() {
+    $(window)
+      .scroll(function() {
+        // selectors
+        var $window = $(window),
+          $body = $("body"),
+          $panel = $(".panel");
+
+        // Change 33% earlier than scroll position so colour is there when you arrive.
+        var scroll = $window.scrollTop() + $window.height() / 3;
+
+        $panel.each(function() {
+          var $this = $(this);
+
+          // if position is within range of this panel.
+          // So position of (position of top of div <= scroll position) && (position of bottom of div > scroll position).
+          // Remember we set the scroll to 33% earlier in scroll var.
+          if (
+            $this.position().top <= scroll &&
+            $this.position().top + $this.height() > scroll
+          ) {
+            // Remove all classes on body with color-
+            $body.removeClass(function(index, css) {
+              return (css.match(/(^|\s)color-\S+/g) || []).join(" ");
+            });
+
+            // Add class of currently active div
+            $body.addClass("color-" + $(this).data("color"));
+          }
+        });
+      })
+      .scroll();
   }
 }
 

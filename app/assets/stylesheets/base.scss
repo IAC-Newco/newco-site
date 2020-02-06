@@ -1,3 +1,8 @@
+body {
+  background: $green;
+  transition: background-color 1s ease;
+}
+
 h1 {
   font-family: "Cambon";
   font-size: 70px;
@@ -24,6 +29,26 @@ p {
   font-size: 17px;
   line-height: 29px;
   text-align: center;
+}
+
+.color-blue {
+  background: $blue;
+}
+
+.color-blush {
+  background: $blush;
+}
+
+.color-green {
+  background: $green;
+}
+
+.color-purple {
+  background: $purple;
+}
+
+.color-white {
+  background: $white;
 }
 
 .content-padding {
