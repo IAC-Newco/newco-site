@@ -155,7 +155,6 @@ class NewcoSite extends Component {
   }
 
   render() {
-    // <img className="paint" src={Paint} />
     return (
       <div className="newco">
         <div className="newco__logo-container">
