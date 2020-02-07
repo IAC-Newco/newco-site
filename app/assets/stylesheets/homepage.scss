@@ -186,9 +186,17 @@
 }
 
 .newco__contact {
+  color: $black;
+  display: block;
   font-family: "Cambon";
   font-size: 50px;
   text-align: center;
+  text-decoration: none;
+  &:hover {
+    color: $black;
+    cursor: pointer;
+    text-decoration: none;
+  }
 }
 
 // shapes
@@ -229,7 +237,7 @@
   bottom: -5%;
   max-width: 225px;
   right: 6.6%;
-  width: 50%;
+  width: 40%;
 }
 
 .shape-6 {

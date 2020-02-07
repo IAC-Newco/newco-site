@@ -146,7 +146,9 @@ class NewcoSite extends Component {
         <img className="shape shape-8" src={Shape8} alt="shape8" />
         <img className="shape shape-9" src={Shape9} alt="shape9" />
         <div className="newco__header-container newco__header-container--5">
-          <div className="newco__contact">Contact Us</div>
+          <a className="newco__contact" href="mailto:hi@buildwithnewco.com">
+            Contact Us
+          </a>
         </div>
       </div>
     );
