@@ -88,6 +88,13 @@
   text-align: center;
 }
 
+.newco__section-3__img {
+  width: 100%;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 // row 1
 .newco__section-3__row-1 {
   grid-row: 1 / 2;
@@ -99,8 +106,9 @@
   width: 140px;
 }
 
-.newco__section-3__img-1 {
-  display: block;
+.newco__section-3__img-1-container {
+  animation: pulse-brand 2s infinite;
+  border-radius: 50%;
   margin: 0 auto 5px auto;
   width: 55px;
 }
@@ -116,10 +124,14 @@
   width: 140px;
 }
 
-.newco__section-3__img-2 {
-  display: block;
+.newco__section-3__img-2-container {
+  $width: 67px;
+  animation: pulse-dev 2s infinite;
+  border-top-left-radius: $width * 2;
+  border-top-right-radius: $width * 2;
   margin: 0 auto 5px auto;
-  width: 67px;
+  height: $width / 2 - 2.25px;
+  width: $width;
 }
 
 // row 3
@@ -130,13 +142,30 @@
 
 .newco__design {
   margin: 0 auto 0 45%;
+  position: relative;
   width: 130px;
+}
+
+.newco__section-3__img-3-container {
+  animation: pulse-design 2s infinite;
+  height: $shape-design-width - 10px;
+  left: 50%;
+  position: absolute;
+  top: $shape-design-top;
+  transform: translate(-50%, -50%) perspective(0.6px) rotateX(0.45deg);
+  width: $shape-design-width;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .newco__section-3__img-3 {
   display: block;
   margin: 0 auto 5px auto;
   width: 72px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 // row 4
@@ -150,10 +179,12 @@
   width: 150px;
 }
 
-.newco__section-3__img-4 {
-  display: block;
+.newco__section-3__img-4-container {
+  $width: 52px;
+  animation: pulse-growth 2s infinite;
   margin: 0 auto 5px auto;
-  width: 52px;
+  height: $width;
+  width: $width;
 }
 
 // row 5
@@ -167,10 +198,13 @@
   width: 150px;
 }
 
-.newco__section-3__img-5 {
-  display: block;
+.newco__section-3__img-5-container {
+  $width: 50px;
+  animation: pulse-more 2s infinite;
+  border-radius: 0 0 0 $width;
+  height: $width;
   margin: 0 auto 5px auto;
-  width: 50px;
+  width: $width;
 }
 
 .newco__section-4 {
@@ -266,6 +300,110 @@
   bottom: 10%;
   left: 25%;
   width: 45.5%;
+}
+
+// pulse animation
+@keyframes pulse-brand {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 rgba(190, 204, 213, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(190, 204, 213, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(190, 204, 213, 0);
+  }
+}
+
+@keyframes pulse-dev {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 rgba(244, 197, 92, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(244, 197, 92, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(244, 197, 92, 0);
+  }
+}
+
+@keyframes pulse-design {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 rgba(216, 189, 220, 0.7);
+    height: $shape-design-width - 10px;
+    left: 50%;
+    position: absolute;
+    top: $shape-design-top;
+    transform: translate(-50%, -50%) perspective(0.6px) rotateX(0.45deg);
+    width: $shape-design-width;
+  }
+
+  70% {
+    transform: scale(0.1);
+    box-shadow: 0 0 0 10px rgba(216, 189, 220, 0);
+    height: $shape-design-width - 10px;
+    left: 50%;
+    position: absolute;
+    top: $shape-design-top;
+    transform: translate(-50%, -50%) perspective(0.6px) rotateX(0.45deg);
+    width: $shape-design-width;
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(216, 189, 220, 0);
+    height: $shape-design-width - 10px;
+    left: 50%;
+    position: absolute;
+    top: $shape-design-top;
+    transform: translate(-50%, -50%) perspective(0.6px) rotateX(0.45deg);
+    width: $shape-design-width;
+  }
+}
+
+@keyframes pulse-growth {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 rgba(179, 183, 149, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(179, 183, 149, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(179, 183, 149, 0);
+  }
+}
+
+@keyframes pulse-more {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 rgba(190, 204, 213, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(190, 204, 213, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(190, 204, 213, 0);
+  }
 }
 
 @media (min-width: $screen-md) and (max-width: #{$screen-lg - 1px}) {
@@ -395,6 +533,7 @@
     left: 0;
     position: absolute;
     text-align: left;
+    z-index: 5;
   }
 
   .newco__section-3__grid {

@@ -18,8 +18,6 @@ import Design from "images/shapes/design.png";
 import Growth from "images/shapes/growth.png";
 import More from "images/shapes/more.png";
 
-import Paint from "images/paint.jpg";
-
 class NewcoSite extends Component {
   renderSectionOne() {
     return (
@@ -68,23 +66,28 @@ class NewcoSite extends Component {
         <div className="newco__section-3__grid">
           <div className="newco__section-3__row-1">
             <div className="newco__brand">
-              <img
-                className="newco__section-3__img-1"
-                src={Brand}
-                alt="brand"
-              />
+              <div className="newco__section-3__img-1-container">
+                <img
+                  className="newco__section-3__img"
+                  src={Brand}
+                  alt="brand"
+                />
+              </div>
               <div className="newco__section-3__text">brand</div>
               <div className="newco__section-3__text">strategists</div>
             </div>
           </div>
           <div className="newco__section-3__row-2">
             <div className="newco__dev">
-              <img className="newco__section-3__img-2" src={Dev} alt="dev" />
+              <div className="newco__section-3__img-2-container">
+                <img className="newco__section-3__img" src={Dev} alt="dev" />
+              </div>
               <div className="newco__section-3__text">developers</div>
             </div>
           </div>
           <div className="newco__section-3__row-3">
             <div className="newco__design">
+              <div className="newco__section-3__img-3-container"></div>
               <img
                 className="newco__section-3__img-3"
                 src={Design}
@@ -95,18 +98,22 @@ class NewcoSite extends Component {
           </div>
           <div className="newco__section-3__row-4">
             <div className="newco__growth">
-              <img
-                className="newco__section-3__img-4"
-                src={Growth}
-                alt="design"
-              />
+              <div className="newco__section-3__img-4-container">
+                <img
+                  className="newco__section-3__img"
+                  src={Growth}
+                  alt="design"
+                />
+              </div>
               <div className="newco__section-3__text">growth</div>
               <div className="newco__section-3__text">marketers</div>
             </div>
           </div>
           <div className="newco__section-3__row-5">
             <div className="newco__more">
-              <img className="newco__section-3__img-5" src={More} alt="more" />
+              <div className="newco__section-3__img-5-container">
+                <img className="newco__section-3__img" src={More} alt="more" />
+              </div>
               <div className="newco__section-3__text">And more...</div>
             </div>
           </div>
@@ -315,7 +322,7 @@ class NewcoSite extends Component {
             }
           } else {
             if (group === 1) {
-              yPos1 = 0 - (scrollTop - (shapeY - window.innerHeight)) / 40;
+              yPos1 = 0 - (scrollTop - (shapeY - window.innerHeight)) / 60;
             } else if (group === 2) {
               yPos2 = 0 - (scrollTop - (shapeY - window.innerHeight)) / 80;
             }
