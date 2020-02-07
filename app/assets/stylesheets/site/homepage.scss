@@ -1,3 +1,28 @@
+body {
+  background: $green;
+  transition: background-color 1s ease;
+}
+
+.color-blue {
+  background: $blue;
+}
+
+.color-blush {
+  background: $blush;
+}
+
+.color-green {
+  background: $green;
+}
+
+.color-purple {
+  background: $purple;
+}
+
+.color-white {
+  background: $white;
+}
+
 .newco {
   overflow: hidden;
   position: relative;
