@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import $ from "jquery";
 
+// date
+import { startingPositions } from "../data/shapes_starting_positions";
+
 // images
 import Logo from "images/logo.png";
 import Shape1 from "images/shapes/shape1.png";
@@ -179,7 +182,7 @@ class NewcoSite extends Component {
     );
   }
 
-  addScrollAnimation() {
+  addBackgroundScrollAnimation() {
     $(window)
       .scroll(function() {
         // selectors
@@ -213,7 +216,7 @@ class NewcoSite extends Component {
       .scroll();
   }
 
-  addParallax() {
+  addParallaxEffects() {
     const shape1 = document.getElementsByClassName("shape-1")[0];
     const shape2 = document.getElementsByClassName("shape-2")[0];
     const shape3 = document.getElementsByClassName("shape-3")[0];
@@ -223,62 +226,6 @@ class NewcoSite extends Component {
     const shape7 = document.getElementsByClassName("shape-7")[0];
     const shape8 = document.getElementsByClassName("shape-8")[0];
     const shape9 = document.getElementsByClassName("shape-9")[0];
-    const startingPositions = {
-      0: {
-        group: 1,
-        sm: -14.025,
-        md: -18.025,
-        lg: -37.025
-      },
-      1: {
-        group: 2,
-        sm: 14.667,
-        md: 21.667,
-        lg: 18.667
-      },
-      2: {
-        group: 1,
-        sm: 79.975,
-        md: 79.975,
-        lg: 81.975
-      },
-      3: {
-        group: 2,
-        sm: -14.333,
-        md: -12.333,
-        lg: -20.333
-      },
-      4: {
-        group: 1,
-        sm: -5.025,
-        md: -5.025,
-        lg: -22.025
-      },
-      5: {
-        group: 2,
-        sm: 5.333,
-        md: 5.333,
-        lg: 15.333
-      },
-      6: {
-        group: 1,
-        sm: 16.975,
-        md: 16.975,
-        lg: 6.975
-      },
-      7: {
-        group: 2,
-        sm: -6.667,
-        md: -6.667,
-        lg: -29.667
-      },
-      8: {
-        group: 1,
-        sm: 9.975,
-        md: 9.975,
-        lg: 9.975
-      }
-    };
 
     window.addEventListener("scroll", function() {
       const mobileScreen = window.innerWidth < 768;
@@ -300,8 +247,10 @@ class NewcoSite extends Component {
         let scrollTop =
           window.pageYOffset || document.documentElement.scrollTop;
         let shapeY = rect.top + scrollTop;
+        const shapeIsRenderedOnScreen =
+          window.scrollY + window.innerHeight >= shapeY;
 
-        if (window.scrollY + window.innerHeight >= shapeY) {
+        if (shapeIsRenderedOnScreen) {
           let startingPosition;
           const group = startingPositions[i]["group"];
           if (mobileScreen) {
@@ -316,9 +265,9 @@ class NewcoSite extends Component {
 
           if (noDiff[i]) {
             if (group === 1) {
-              yPos1 = 0 - scrollTop / 40;
+              yPos1 = 0 - scrollTop / 80;
             } else if (group === 2) {
-              yPos2 = 0 - scrollTop / 80;
+              yPos2 = 0 - scrollTop / 120;
             }
           } else {
             if (group === 1) {
@@ -367,8 +316,8 @@ class NewcoSite extends Component {
   }
 
   componentDidMount() {
-    this.addScrollAnimation();
-    this.addParallax();
+    this.addBackgroundScrollAnimation();
+    this.addParallaxEffects();
   }
 }
 
