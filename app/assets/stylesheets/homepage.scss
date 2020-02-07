@@ -652,9 +652,9 @@
   }
 }
 
-@media (min-width: $screen-xl) {
+@media (min-width: 1920px) {
   .panel {
-    box-sizing: border-box;
+    box-sizing: content-box;
     margin: 0 auto;
     max-width: 1280px;
     width: 100%;

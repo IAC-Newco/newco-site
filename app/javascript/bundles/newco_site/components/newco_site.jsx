@@ -260,50 +260,52 @@ class NewcoSite extends Component {
           } else if (desktopScreen) {
             startingPosition = startingPositions[i]["lg"];
           }
-          let yPos1;
-          let yPos2;
+          let yPos;
+          let divisor;
+
+          if (group === 1) {
+            divisor = 100;
+          } else if (group === 2) {
+            divisor = 60;
+          } else if (group === 3) {
+            divisor = 120;
+          } else if (group === 4) {
+            divisor = 80;
+          }
 
           if (noDiff[i]) {
-            if (group === 1) {
-              yPos1 = 0 - scrollTop / 80;
-            } else if (group === 2) {
-              yPos2 = 0 - scrollTop / 120;
-            }
+            yPos = 0 - scrollTop / divisor;
           } else {
-            if (group === 1) {
-              yPos1 = 0 - (scrollTop - (shapeY - window.innerHeight)) / 60;
-            } else if (group === 2) {
-              yPos2 = 0 - (scrollTop - (shapeY - window.innerHeight)) / 80;
-            }
+            yPos = 0 - (scrollTop - (shapeY - window.innerHeight)) / divisor;
           }
 
           switch (i) {
             case 0: // shape1
-              shape1.style.top = startingPosition + yPos1 + "%";
+              shape1.style.top = startingPosition + yPos + "%";
               break;
             case 1: // shape2
-              shape2.style.top = startingPosition + yPos2 + "%";
+              shape2.style.top = startingPosition + yPos + "%";
               break;
             case 2: // shape3
-              shape3.style.top = startingPosition + yPos1 + "%";
+              shape3.style.top = startingPosition + yPos + "%";
               break;
             case 3: // shape4
-              shape4.style.top = startingPosition + yPos2 + "%";
+              shape4.style.top = startingPosition + yPos + "%";
               break;
             case 4: // shape5
-              shape5.style.bottom = startingPosition - yPos1 + "%";
+              shape5.style.bottom = startingPosition - yPos + "%";
               break;
             case 5: // shape6
-              shape6.style.top = startingPosition + yPos2 + "%";
+              shape6.style.top = startingPosition + yPos + "%";
               break;
             case 6: // shape7
-              shape7.style.bottom = startingPosition - yPos1 + "%";
+              shape7.style.bottom = startingPosition - yPos + "%";
               break;
             case 7:
-              shape8.style.top = startingPosition + yPos2 + "%";
+              shape8.style.top = startingPosition + yPos + "%";
               break;
             case 8:
-              shape9.style.bottom = startingPosition - yPos1 + "%";
+              shape9.style.bottom = startingPosition - yPos + "%";
               break;
           }
         }
