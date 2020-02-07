@@ -38,7 +38,7 @@ p {
   font-family: "Muli", sans-serif;
 }
 
-@media (min-width: $screen-md) {
+@media (min-width: 768px) {
   h1 {
     font-size: 100px;
     line-height: 103px;
@@ -61,13 +61,13 @@ p {
   }
 }
 
-@media (min-width: $screen-md) and (max-width: #{$screen-lg - 1px}) {
+@media (min-width: 768px) and (max-width: 1023px) {
   .content-padding {
     padding: 0 26%;
   }
 }
 
-@media (min-width: $screen-lg) {
+@media (min-width: 1024px) {
   h1 {
     font-size: 130px;
     line-height: 170px;
