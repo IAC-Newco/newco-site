@@ -331,7 +331,7 @@ body {
 @keyframes pulse-brand {
   0% {
     transform: scale($pulse-scale-1);
-    box-shadow: 0 0 0 rgba(190, 204, 213, 0.7);
+    box-shadow: 0 0 0 rgba(190, 204, 213, 1);
   }
 
   70% {
@@ -348,7 +348,7 @@ body {
 @keyframes pulse-dev {
   0% {
     transform: scale($pulse-scale-1);
-    box-shadow: 0 0 0 rgba(244, 197, 92, 0.7);
+    box-shadow: 0 0 0 rgba(244, 197, 92, 1);
   }
 
   70% {
@@ -365,7 +365,7 @@ body {
 @keyframes pulse-design {
   0% {
     transform: scale($pulse-scale-1);
-    box-shadow: 0 0 0 rgba(216, 189, 220, 0.7);
+    box-shadow: 0 0 0 rgba(216, 189, 220, 1);
     height: $shape-design-width - 10px;
     left: 50%;
     position: absolute;
@@ -400,7 +400,7 @@ body {
 @keyframes pulse-growth {
   0% {
     transform: scale($pulse-scale-1);
-    box-shadow: 0 0 0 rgba(179, 183, 149, 0.7);
+    box-shadow: 0 0 0 rgba(179, 183, 149, 1);
   }
 
   70% {
@@ -417,7 +417,7 @@ body {
 @keyframes pulse-more {
   0% {
     transform: scale($pulse-scale-1);
-    box-shadow: 0 0 0 rgba(190, 204, 213, 0.7);
+    box-shadow: 0 0 0 rgba(190, 204, 213, 1);
   }
 
   70% {
@@ -540,7 +540,7 @@ body {
   }
 
   .newco__section-2 {
-    min-height: 550px;
+    min-height: 758px;
   }
 
   .newco__header-container--2 {

@@ -264,13 +264,13 @@ class NewcoSite extends Component {
           let divisor;
 
           if (group === 1) {
-            divisor = 100;
-          } else if (group === 2) {
             divisor = 60;
-          } else if (group === 3) {
-            divisor = 120;
-          } else if (group === 4) {
+          } else if (group === 2) {
             divisor = 80;
+          } else if (group === 3) {
+            divisor = 100;
+          } else if (group === 4) {
+            divisor = 40;
           }
 
           if (noDiff[i]) {
