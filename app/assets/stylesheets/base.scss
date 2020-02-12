@@ -1,3 +1,9 @@
+// html,
+// body {
+//   height: 100%;
+//   overflow: auto;
+// }
+
 h1 {
   font-family: "Cambon";
   font-size: 70px;
@@ -20,22 +26,16 @@ h3 {
 }
 
 p {
+  box-sizing: border-box;
   font-family: "Biryani", sans-serif;
-  font-size: 17px;
-  line-height: 29px;
+  font-size: 16px;
+  line-height: 30px;
   text-align: center;
+  width: 100% - 6.6% * 2;
 }
 
 .content-padding {
-  padding: 0 6.6%;
-}
-
-.font--cb {
-  font-family: "Cambon";
-}
-
-.font--ml {
-  font-family: "Muli", sans-serif;
+  padding: 0 6.6%; // make sure this matches the $content-padding in variables.scss
 }
 
 @media (min-width: 768px) {
@@ -63,7 +63,7 @@ p {
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .content-padding {
-    padding: 0 26%;
+    padding: 0 26%; // make sure this matches the $content-padding in variables.scss
   }
 }
 
@@ -74,6 +74,6 @@ p {
   }
 
   .content-padding {
-    padding: 0 9.7%;
+    padding: 0 9.7%; // make sure this matches the $content-padding in variables.scss
   }
 }

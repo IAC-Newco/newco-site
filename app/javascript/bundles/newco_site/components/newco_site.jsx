@@ -45,17 +45,19 @@ class NewcoSite extends Component {
   }
 
   renderSectionTwo() {
+    //   <div className="newco__header-container newco__header-container--2">
+    // </div>
     return (
       <div className="newco__section-2 content-padding panel" data-color="blue">
         <img className="shape shape-4" src={Shape4} alt="shape4" />
         <img className="shape shape-5" src={Shape5} alt="shape5" />
-        <div className="newco__header-container newco__header-container--2">
-          <h2 className="newco__h2">We work with founders from Day 0</h2>
-          <p>
-            providing them the team, tools, and capital to bring their ideas to
-            life.
-          </p>
-        </div>
+        <h2 className="newco__h2 newco__h2--2">
+          We work with founders from Day 0
+        </h2>
+        <p className="newco__p--2">
+          providing them the team, tools, and capital to bring their ideas to
+          life.
+        </p>
       </div>
     );
   }
@@ -63,9 +65,7 @@ class NewcoSite extends Component {
   renderSectionThree() {
     return (
       <div className="newco__section-3 panel" data-color="white">
-        <h3 className="newco__section-3__h3 content-padding">
-          We're a team of...
-        </h3>
+        <h3 className="newco__h3--3 content-padding">We're a team of...</h3>
         <div className="newco__section-3__grid">
           <div className="newco__section-3__row-1">
             <div className="newco__brand">
@@ -121,7 +121,7 @@ class NewcoSite extends Component {
             </div>
           </div>
         </div>
-        <p className="newco__section-3__p content-padding">
+        <p className="newco__p--3 content-padding">
           who pair our startup experience with the knowledge base that IAC has
           built over two decades and across 150 brands.
         </p>
@@ -171,7 +171,7 @@ class NewcoSite extends Component {
           <div className="newco__logo-img-container">
             <img className="newco__logo-img" src={Logo} />
           </div>
-          <div className="newco__logo-text font--ml">AN IAC INCUBATOR</div>
+          <div className="newco__logo-text">AN IAC INCUBATOR</div>
         </div>
         {this.renderSectionOne()}
         {this.renderSectionTwo()}
@@ -185,17 +185,14 @@ class NewcoSite extends Component {
   addBackgroundScrollAnimation() {
     $(window)
       .scroll(function() {
-        // selectors
-        var $window = $(window),
-          $body = $("body"),
+        let $window = $(window),
+          $newco = $(".newco"),
           $panel = $(".panel");
 
         // Change 33% earlier than scroll position so colour is there when you arrive.
         var scroll = $window.scrollTop() + $window.height() / 3;
-
         $panel.each(function() {
           var $this = $(this);
-
           // if position is within range of this panel.
           // So position of (position of top of div <= scroll position) && (position of bottom of div > scroll position).
           // Remember we set the scroll to 33% earlier in scroll var.
@@ -203,13 +200,28 @@ class NewcoSite extends Component {
             $this.position().top <= scroll &&
             $this.position().top + $this.height() > scroll
           ) {
-            // Remove all classes on body with color-
-            $body.removeClass(function(index, css) {
+            $newco.removeClass(function(index, css) {
               return (css.match(/(^|\s)color-\S+/g) || []).join(" ");
             });
+            $newco.addClass("color-" + $(this).data("color"));
 
-            // Add class of currently active div
-            $body.addClass("color-" + $(this).data("color"));
+            let className = $this[0].classList[0];
+            if (className === "newco__section-2") {
+              $(".newco__h2--2").addClass("fade-in-up-h2--2");
+              $(".newco__section-2 .newco__p--2").addClass("fade-in-up-p--2");
+            } else if (className == "newco__section-3") {
+              $(".newco__h3--3").addClass("fade-in");
+              $(".newco__section-3__grid").addClass("fade-in");
+              $(".newco__p--3").addClass("fade-in");
+            } else if (className == "newco__section-4") {
+              $(".newco__header-container--4").addClass(
+                "fade-in-up-header-container--4"
+              );
+            } else if (className == "newco__section-5") {
+              $(".newco__header-container--5").addClass(
+                "fade-in-up-header-container--5"
+              );
+            }
           }
         });
       })
@@ -317,9 +329,32 @@ class NewcoSite extends Component {
     });
   }
 
+  addAnimationCallbacks() {
+    const selectors = [
+      $(".newco__p--2"),
+      $(".newco__h2--2"),
+      $(".newco__h3--3"),
+      $(".newco__section-3__grid"),
+      $(".newco__p--3"),
+      $(".newco__header-container--4"),
+      $(".newco__header-container--5")
+    ];
+
+    selectors.forEach(selector => {
+      selector.bind(
+        "oanimationend animationend webkitAnimationEnd",
+        function() {
+          selector.css("opacity", 1);
+        }
+      );
+    });
+  }
+
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.addBackgroundScrollAnimation();
     this.addParallaxEffects();
+    this.addAnimationCallbacks();
   }
 }
 

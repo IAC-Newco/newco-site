@@ -1,0 +1,154 @@
+// keyframes
+// $fade-in-up-to-tops: 45, 50, 55, 60, 65, 70;
+// $fade-in-up-to-tops: 65;
+// @each $top in $fade-in-up-to-tops {
+//   @include keyfames(fade-in-up-to-#{$top}) {
+//     @include fade-in-up-to(140%, ($top) #{"%"});
+//   }
+// }
+
+@include keyframes(fade-in) {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@include keyframes(fade-in-up-to-45) {
+  @include fade-in-up-to(140%, 45%);
+}
+
+@include keyframes(fade-in-up-to-50) {
+  @include fade-in-up-to(70%, 50%);
+}
+
+@include keyframes(fade-in-up-to-55) {
+  @include fade-in-up-to(75%, 55%);
+}
+
+@include keyframes(fade-in-up-to-60) {
+  @include fade-in-up-to(80%, 60%);
+}
+
+@include keyframes(fade-in-up-to-65) {
+  @include fade-in-up-to(85%, 65%);
+}
+
+@include keyframes(fade-in-up-to-68) {
+  @include fade-in-up-to(88%, 68%);
+}
+
+@include keyframes(fade-in-up-to-70) {
+  @include fade-in-up-to(140%, 70%);
+}
+
+@include keyframes(pulse-brand) {
+  @include pulse-animation-content(190, 204, 213, 1);
+}
+
+@include keyframes(pulse-design) {
+  0% {
+    transform: scale($pulse-scale-1);
+    box-shadow: 0 0 0 rgba(216, 189, 220, 1);
+    height: $shape-design-width - 10px;
+    left: 50%;
+    position: absolute;
+    top: $shape-design-top;
+    transform: translate(-50%, -50%) perspective(0.6px) rotateX(0.45deg);
+    width: $shape-design-width;
+  }
+  70% {
+    transform: scale($pulse-scale-2);
+    box-shadow: 0 0 0 10px rgba(216, 189, 220, 0);
+    height: $shape-design-width - 10px;
+    left: 50%;
+    position: absolute;
+    top: $shape-design-top;
+    transform: translate(-50%, -50%) perspective(0.6px) rotateX(0.45deg);
+    width: $shape-design-width;
+  }
+  100% {
+    transform: scale($pulse-scale-3);
+    box-shadow: 0 0 0 0 rgba(216, 189, 220, 0);
+    height: $shape-design-width - 10px;
+    left: 50%;
+    position: absolute;
+    top: $shape-design-top;
+    transform: translate(-50%, -50%) perspective(0.6px) rotateX(0.45deg);
+    width: $shape-design-width;
+  }
+}
+
+@include keyframes(pulse-dev) {
+  @include pulse-animation-content(244, 197, 92, 1);
+}
+
+@include keyframes(pulse-growth) {
+  @include pulse-animation-content(179, 183, 149, 1);
+}
+
+@include keyframes(pulse-more) {
+  @include pulse-animation-content(190, 204, 213, 1);
+}
+
+// @include keyframes(slide-down) {
+//   @include slide-down-animation-content(0, 140);
+// }
+@keyframes slide-down {
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 140%;
+  }
+}
+
+// classes
+.animation-delay-2s {
+  @include animation-delay(2s);
+}
+
+.animation-delay-4s {
+  @include animation-delay(4s);
+}
+
+.animation-delay-6s {
+  @include animation-delay(6s);
+}
+
+$animation-duration: 0.75s;
+
+.fade-in {
+  animation-name: fade-in;
+  animation-duration: $animation-duration;
+  animation-timing-function: ease-in-out;
+}
+
+.fade-in-up-h2--2 {
+  animation-name: fade-in-up-to-50;
+  animation-duration: $animation-duration;
+  animation-timing-function: ease-in-out;
+}
+
+.fade-in-up-p--2 {
+  animation-name: fade-in-up-to-68;
+  animation-duration: $animation-duration;
+  animation-timing-function: ease-in-out;
+}
+
+.fade-in-h3--3 {
+}
+
+.fade-in-up-header-container--4 {
+  animation-name: fade-in-up-to-50;
+  animation-duration: $animation-duration;
+  animation-timing-function: ease-in-out;
+}
+
+.fade-in-up-header-container--5 {
+  animation-name: fade-in-up-to-50;
+  animation-duration: $animation-duration;
+  animation-timing-function: ease-in-out;
+}
