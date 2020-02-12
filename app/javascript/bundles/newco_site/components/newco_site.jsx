@@ -22,6 +22,35 @@ import Growth from "images/shapes/growth.png";
 import More from "images/shapes/more.png";
 
 class NewcoSite extends Component {
+  constructor(props) {
+    super(props);
+    this.STATS = {
+      BRAND: 1,
+      DEV: 2,
+      DESIGN: 3,
+      GROWTH: 4,
+      MORE: 5
+    };
+
+    this.state = {
+      statToRender: null
+    };
+  }
+
+  getStatClassName(stat) {
+    let display = "";
+    const baseClass = "newco__section-3__stat";
+    if (this.STATS[stat] !== this.state.statToRender) display = "hidden";
+
+    return `${baseClass} ${baseClass}--${stat.toLowerCase()} ${display}`;
+  }
+
+  setStatToRender = (event, stat) => {
+    let statToRender = this.STATS[stat] || null;
+    // console.log("statToRender", statToRender);
+    this.setState({ statToRender: statToRender });
+  };
+
   renderSectionOne() {
     return (
       <div
@@ -45,8 +74,6 @@ class NewcoSite extends Component {
   }
 
   renderSectionTwo() {
-    //   <div className="newco__header-container newco__header-container--2">
-    // </div>
     return (
       <div className="newco__section-2 content-padding panel" data-color="blue">
         <img className="shape shape-4" src={Shape4} alt="shape4" />
@@ -72,9 +99,18 @@ class NewcoSite extends Component {
               <div className="newco__section-3__img-1-container">
                 <img
                   className="newco__section-3__img"
+                  onMouseEnter={() => this.setStatToRender(event, "BRAND")}
+                  onMouseLeave={() => this.setStatToRender(event, null)}
                   src={Brand}
                   alt="brand"
                 />
+                <div
+                  className={this.getStatClassName("BRAND")}
+                  onMouseEnter={() => this.setStatToRender(event, "BRAND")}
+                  onMouseLeave={() => this.setStatToRender(null)}
+                >
+                  Who have deployed 50+ MVPs
+                </div>
               </div>
               <div className="newco__section-3__text">brand</div>
               <div className="newco__section-3__text">strategists</div>
@@ -83,19 +119,43 @@ class NewcoSite extends Component {
           <div className="newco__section-3__row-2">
             <div className="newco__dev">
               <div className="newco__section-3__img-2-container">
-                <img className="newco__section-3__img" src={Dev} alt="dev" />
+                <img
+                  className="newco__section-3__img"
+                  onMouseEnter={() => this.setStatToRender(event, "DEV")}
+                  onMouseLeave={() => this.setStatToRender(null)}
+                  src={Dev}
+                  alt="dev"
+                />
+                <div
+                  className={this.getStatClassName("DEV")}
+                  onMouseEnter={() => this.setStatToRender(event, "DEV")}
+                  onMouseLeave={() => this.setStatToRender(null)}
+                >
+                  Who have deployed 50+ MVPs
+                </div>
               </div>
               <div className="newco__section-3__text">developers</div>
             </div>
           </div>
           <div className="newco__section-3__row-3">
             <div className="newco__design">
-              <div className="newco__section-3__img-3-container"></div>
-              <img
-                className="newco__section-3__img-3"
-                src={Design}
-                alt="design"
-              />
+              <div className="newco__section-3__img-3-pulse"></div>
+              <div className="newco__section-3__img-3-container">
+                <img
+                  className="newco__section-3__img-3"
+                  onMouseEnter={() => this.setStatToRender(event, "DESIGN")}
+                  onMouseLeave={() => this.setStatToRender(null)}
+                  src={Design}
+                  alt="design"
+                />
+                <div
+                  className={this.getStatClassName("DESIGN")}
+                  onMouseEnter={() => this.setStatToRender(event, "DESIGN")}
+                  onMouseLeave={() => this.setStatToRender(null)}
+                >
+                  Who have deployed 50+ MVPs
+                </div>
+              </div>
               <div className="newco__section-3__text">designers</div>
             </div>
           </div>
@@ -104,9 +164,18 @@ class NewcoSite extends Component {
               <div className="newco__section-3__img-4-container">
                 <img
                   className="newco__section-3__img"
+                  onMouseEnter={() => this.setStatToRender(event, "GROWTH")}
+                  onMouseLeave={() => this.setStatToRender(null)}
                   src={Growth}
-                  alt="design"
+                  alt="growth"
                 />
+                <div
+                  className={this.getStatClassName("GROWTH")}
+                  onMouseEnter={() => this.setStatToRender(event, "GROWTH")}
+                  onMouseLeave={() => this.setStatToRender(null)}
+                >
+                  Who have deployed 50+ MVPs
+                </div>
               </div>
               <div className="newco__section-3__text">growth</div>
               <div className="newco__section-3__text">marketers</div>
@@ -115,7 +184,20 @@ class NewcoSite extends Component {
           <div className="newco__section-3__row-5">
             <div className="newco__more">
               <div className="newco__section-3__img-5-container">
-                <img className="newco__section-3__img" src={More} alt="more" />
+                <img
+                  className="newco__section-3__img"
+                  onMouseEnter={() => this.setStatToRender(event, "MORE")}
+                  onMouseLeave={() => this.setStatToRender(null)}
+                  src={More}
+                  alt="more"
+                />
+                <div
+                  className={this.getStatClassName("MORE")}
+                  onMouseEnter={() => this.setStatToRender(event, "MORE")}
+                  onMouseLeave={() => this.setStatToRender(null)}
+                >
+                  Who have deployed 50+ MVPs
+                </div>
               </div>
               <div className="newco__section-3__text">And more...</div>
             </div>
@@ -165,6 +247,7 @@ class NewcoSite extends Component {
   }
 
   render() {
+    console.log("state", this.state);
     return (
       <div className="newco">
         <div className="newco__logo-container">
