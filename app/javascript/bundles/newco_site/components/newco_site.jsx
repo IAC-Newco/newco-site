@@ -120,7 +120,7 @@ class NewcoSite extends Component {
                   onMouseEnter={() => this.setStatToRender(event, "BRAND")}
                   onMouseLeave={() => this.setStatToRender(null)}
                 >
-                  who have crafted 76 brand identities
+                  who have crafted 83 brand identities
                 </div>
               </div>
               <div className="newco__section-3__text">brand</div>
@@ -142,7 +142,7 @@ class NewcoSite extends Component {
                   onMouseEnter={() => this.setStatToRender(event, "DEV")}
                   onMouseLeave={() => this.setStatToRender(null)}
                 >
-                  who have deployed 50+ MVPs
+                  who have deployed 70+ MVPs
                 </div>
               </div>
               <div className="newco__section-3__text">developers</div>
@@ -164,7 +164,7 @@ class NewcoSite extends Component {
                   onMouseEnter={() => this.setStatToRender(event, "DESIGN")}
                   onMouseLeave={() => this.setStatToRender(null)}
                 >
-                  who have deployed 50+ MVPs
+                  who have designed 2,729 screens
                 </div>
               </div>
               <div className="newco__section-3__text">designers</div>
@@ -195,20 +195,7 @@ class NewcoSite extends Component {
           <div className="newco__section-3__row-5">
             <div className="newco__more">
               <div className={this.getContainerClassName("MORE")}>
-                <img
-                  className="newco__section-3__img"
-                  onMouseEnter={() => this.setStatToRender(event, "MORE")}
-                  onMouseLeave={() => this.setStatToRender(null)}
-                  src={More}
-                  alt="more"
-                />
-                <div
-                  className={this.getStatClassName("MORE")}
-                  onMouseEnter={() => this.setStatToRender(event, "MORE")}
-                  onMouseLeave={() => this.setStatToRender(null)}
-                >
-                  who have deployed 50+ MVPs
-                </div>
+                <img className="newco__section-3__img" src={More} alt="more" />
               </div>
               <div className="newco__section-3__text">And more...</div>
             </div>
