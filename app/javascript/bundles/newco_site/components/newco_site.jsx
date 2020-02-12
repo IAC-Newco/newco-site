@@ -185,7 +185,7 @@ class NewcoSite extends Component {
                   onMouseEnter={() => this.setStatToRender(event, "GROWTH")}
                   onMouseLeave={() => this.setStatToRender(null)}
                 >
-                  who have run thoudsands of ads
+                  who have run thousands of ads
                 </div>
               </div>
               <div className="newco__section-3__text">growth</div>
