@@ -182,18 +182,21 @@
   color: $white;
   font-family: "Cambon";
   font-size: 25px;
-  height: 150px;
+  height: 160px;
   line-height: 32px;
+  opacity: 0;
+  padding-left: 10px;
+  padding-right: 10px;
   position: absolute;
   text-align: center;
-  width: 150px;
+  width: 160px;
   &:hover {
     cursor: pointer;
   }
 }
 
 .newco__section-3__stat--brand {
-  padding-top: 10px;
+  padding-top: 15px;
   right: 30px;
   top: -30px;
 }
@@ -227,7 +230,7 @@
 
 .newco__section-3__stat--dev {
   left: 30px;
-  padding-top: 25px;
+  padding-top: 30px;
   top: -30px;
 }
 
@@ -276,7 +279,7 @@
 
 .newco__section-3__stat--design {
   left: 60px;
-  padding-top: 25px;
+  padding-top: 30px;
   top: -30px;
 }
 
@@ -307,7 +310,7 @@
 
 .newco__section-3__stat--growth {
   left: 30px;
-  padding-top: 11px;
+  padding-top: 16px;
   top: -30px;
 }
 
@@ -339,7 +342,7 @@
 
 .newco__section-3__stat--more {
   right: 30px;
-  padding-top: 25px;
+  padding-top: 30px;
   top: -30px;
 }
 

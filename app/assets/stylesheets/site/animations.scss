@@ -16,6 +16,15 @@
   }
 }
 
+@include keyframes(fade-out) {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @include keyframes(fade-in-up-to-45) {
   @include fade-in-up-to(140%, 45%);
 }
@@ -122,6 +131,12 @@ $animation-duration: 0.75s;
 
 .fade-in {
   animation-name: fade-in;
+  animation-duration: $animation-duration;
+  animation-timing-function: linear;
+}
+
+.fade-out {
+  animation-name: fade-out;
   animation-duration: $animation-duration;
   animation-timing-function: linear;
 }

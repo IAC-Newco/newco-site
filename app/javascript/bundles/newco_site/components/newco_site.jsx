@@ -31,7 +31,7 @@ class NewcoSite extends Component {
       GROWTH: 4,
       MORE: 5
     };
-
+    this.myRef = React.createRef();
     this.state = {
       statToRender: null
     };
@@ -49,7 +49,7 @@ class NewcoSite extends Component {
   }
 
   getStatClassName(stat) {
-    let display = "";
+    let display = "fade-in";
     const baseClass = "newco__section-3__stat";
     if (this.STATS[stat] !== this.state.statToRender) display = "hidden";
 
@@ -259,7 +259,7 @@ class NewcoSite extends Component {
 
   render() {
     return (
-      <div className="newco">
+      <div className="newco" ref={this.myRef}>
         <div className="newco__logo-container">
           <div className="newco__logo-img-container">
             <img className="newco__logo-img" src={Logo} />
@@ -273,180 +273,6 @@ class NewcoSite extends Component {
         {this.renderSectionFive()}
       </div>
     );
-  }
-
-  animateBackgroundColor() {
-    $(window).scroll(function() {
-      let $window = $(window),
-        $newco = $(".newco"),
-        $panel = $(".panel");
-
-      // Change 33% earlier than scroll position so colour is there when you arrive.
-      var scroll = $window.scrollTop() + $window.height() / 3;
-      $panel.each(function() {
-        var $this = $(this);
-        // if position is within range of this panel.
-        // So position of (position of top of div <= scroll position) && (position of bottom of div > scroll position).
-        // Remember we set the scroll to 33% earlier in scroll var.
-        if (
-          $this.position().top <= scroll &&
-          $this.position().top + $this.height() > scroll
-        ) {
-          $newco.removeClass(function(index, css) {
-            return (css.match(/(^|\s)color-\S+/g) || []).join(" ");
-          });
-          $newco.addClass("color-" + $(this).data("color"));
-
-          let className = $this[0].classList[0];
-          if (className === "newco__section-2") {
-            $(".newco__h2--2").addClass("fade-in-up-h2--2");
-            $(".newco__section-2 .newco__p--2").addClass("fade-in-up-p--2");
-          } else if (className == "newco__section-3") {
-            $(".newco__h3--3").addClass("fade-in");
-            $(".newco__section-3__row-1").addClass("fade-in");
-            $(".newco__section-3__row-2").addClass("fade-in");
-            $(".newco__section-3__row-3").addClass("fade-in");
-            $(".newco__section-3__row-4").addClass("fade-in");
-            $(".newco__section-3__row-5").addClass("fade-in");
-            $(".newco__p--3").addClass("fade-in");
-          } else if (className == "newco__section-4") {
-            $(".newco__header-container--4").addClass(
-              "fade-in-up-header-container--4"
-            );
-          } else if (className == "newco__section-5") {
-            $(".newco__header-container--5").addClass(
-              "fade-in-up-header-container--5"
-            );
-          }
-        }
-      });
-    });
-  }
-
-  addParralaxEffectsToShapes() {
-    const shape1 = document.getElementsByClassName("shape-1")[0];
-    const shape2 = document.getElementsByClassName("shape-2")[0];
-    const shape3 = document.getElementsByClassName("shape-3")[0];
-    const shape4 = document.getElementsByClassName("shape-4")[0];
-    const shape5 = document.getElementsByClassName("shape-5")[0];
-    const shape6 = document.getElementsByClassName("shape-6")[0];
-    const shape7 = document.getElementsByClassName("shape-7")[0];
-    const shape8 = document.getElementsByClassName("shape-8")[0];
-    const shape9 = document.getElementsByClassName("shape-9")[0];
-
-    window.addEventListener("scroll", function() {
-      const mobileScreen = window.innerWidth < 768;
-      const tabletScreen = window.innerWidth >= 768 && window.innerWidth < 1024;
-      const desktopScreen = window.innerWidth >= 1024;
-      const noDiff = { 0: true, 1: true, 2: true, 3: true };
-      [
-        shape1,
-        shape2,
-        shape3,
-        shape4,
-        shape5,
-        shape6,
-        shape7,
-        shape8,
-        shape9
-      ].forEach((shape, i) => {
-        let rect = shape.getBoundingClientRect();
-        let scrollTop =
-          window.pageYOffset || document.documentElement.scrollTop;
-        let shapeY = rect.top + scrollTop;
-        const shapeIsRenderedOnScreen =
-          window.scrollY + window.innerHeight >= shapeY;
-
-        if (shapeIsRenderedOnScreen) {
-          let startingPosition;
-          const group = startingPositions[i]["group"];
-          if (mobileScreen) {
-            startingPosition = startingPositions[i]["sm"];
-          } else if (tabletScreen) {
-            startingPosition = startingPositions[i]["md"];
-          } else if (desktopScreen) {
-            startingPosition = startingPositions[i]["lg"];
-          }
-          let yPos;
-          let divisor;
-
-          if (group === 1) {
-            divisor = 60;
-          } else if (group === 2) {
-            divisor = 80;
-          } else if (group === 3) {
-            divisor = 100;
-          } else if (group === 4) {
-            divisor = 40;
-          }
-
-          if (noDiff[i]) {
-            yPos = 0 - scrollTop / divisor;
-          } else {
-            yPos = 0 - (scrollTop - (shapeY - window.innerHeight)) / divisor;
-          }
-
-          switch (i) {
-            case 0: // shape1
-              shape1.style.top = startingPosition + yPos + "%";
-              break;
-            case 1: // shape2
-              shape2.style.top = startingPosition + yPos + "%";
-              break;
-            case 2: // shape3
-              shape3.style.top = startingPosition + yPos + "%";
-              break;
-            case 3: // shape4
-              shape4.style.top = startingPosition + yPos + "%";
-              break;
-            case 4: // shape5
-              shape5.style.bottom = startingPosition - yPos + "%";
-              break;
-            case 5: // shape6
-              shape6.style.top = startingPosition + yPos + "%";
-              break;
-            case 6: // shape7
-              shape7.style.bottom = startingPosition - yPos + "%";
-              break;
-            case 7:
-              shape8.style.top = startingPosition + yPos + "%";
-              break;
-            case 8:
-              shape9.style.bottom = startingPosition - yPos + "%";
-              break;
-          }
-        }
-      });
-
-      // document.body.offsetHeight; //
-      // window.scrollY; // current scroll position
-      // window.innerHeight; // current window height
-    });
-  }
-
-  addAnimationCallbacks() {
-    const selectors = [
-      $(".newco__p--2"),
-      $(".newco__h2--2"),
-      $(".newco__h3--3"),
-      $(".newco__section-3__row-1"),
-      $(".newco__section-3__row-2"),
-      $(".newco__section-3__row-3"),
-      $(".newco__section-3__row-4"),
-      $(".newco__section-3__row-5"),
-      $(".newco__p--3"),
-      $(".newco__header-container--4"),
-      $(".newco__header-container--5")
-    ];
-
-    selectors.forEach(selector => {
-      selector.bind(
-        "oanimationend animationend webkitAnimationEnd",
-        function() {
-          selector.css("opacity", 1);
-        }
-      );
-    });
   }
 
   addScrollEvents() {
@@ -473,12 +299,11 @@ class NewcoSite extends Component {
     const c4 = $(".newco__header-container--4");
     const c5 = $(".newco__header-container--5");
 
-    $(window).scroll(function() {
+    $("body").scroll(function() {
       // SCROLL ANIMATION
-      let $window = $(window),
+      let $window = $("body"),
         $newco = $(".newco"),
         $panel = $(".panel");
-      console.log("hit");
       // Change 33% earlier than scroll position so colour is there when you arrive.
       let scroll = $window.scrollTop() + $window.height() / 3;
       $panel.each(function() {
@@ -566,7 +391,7 @@ class NewcoSite extends Component {
           } else {
             yPos = 0 - (scrollTop - (shapeY - window.innerHeight)) / divisor;
           }
-
+          console.log("hit", i);
           switch (i) {
             case 0: // shape1
               shape1.style.top = startingPosition + yPos + "%";
@@ -601,8 +426,35 @@ class NewcoSite extends Component {
     });
   }
 
+  addAnimationCallbacks() {
+    const selectors = [
+      $(".newco__p--2"),
+      $(".newco__h2--2"),
+      $(".newco__h3--3"),
+      $(".newco__section-3__row-1"),
+      $(".newco__section-3__row-2"),
+      $(".newco__section-3__row-3"),
+      $(".newco__section-3__row-4"),
+      $(".newco__section-3__row-5"),
+      $(".newco__p--3"),
+      $(".newco__header-container--4"),
+      $(".newco__header-container--5"),
+      $(".newco__section-3__stat")
+    ];
+
+    selectors.forEach(selector => {
+      selector.bind(
+        "oanimationend animationend webkitAnimationEnd",
+        function() {
+          selector.css("opacity", 1);
+        }
+      );
+    });
+  }
+
   componentDidMount() {
     $(window).scrollTop();
+    // this.myRef.current.scrollTo(0, 0);
     this.addScrollEvents();
     this.addAnimationCallbacks();
   }
