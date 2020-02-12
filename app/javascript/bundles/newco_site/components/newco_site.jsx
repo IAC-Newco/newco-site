@@ -32,7 +32,7 @@ class NewcoSite extends Component {
         <img className="shape shape-2" src={Shape2} alt="shape2" />
         <img className="shape shape-3" src={Shape3} alt="shape3" />
         <div className="newco__header-container newco__header-container--1">
-          <h1 className="newco__h1">Build, better</h1>
+          <h1 className="newco__h1">Build, better.</h1>
           <p className="newco__p newco__p--1">
             Newco is a platform for exceptional entrepreneurs to build
             businesses - supported by an ecosystem that has produced 10 public
