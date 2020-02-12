@@ -123,19 +123,19 @@ $animation-duration: 0.75s;
 .fade-in {
   animation-name: fade-in;
   animation-duration: $animation-duration;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: linear;
 }
 
 .fade-in-up-h2--2 {
   animation-name: fade-in-up-to-50;
   animation-duration: $animation-duration;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: linear;
 }
 
 .fade-in-up-p--2 {
   animation-name: fade-in-up-to-68;
   animation-duration: $animation-duration;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: linear;
 }
 
 .fade-in-h3--3 {
@@ -144,25 +144,25 @@ $animation-duration: 0.75s;
 .fade-in-up-header-container--4 {
   animation-name: fade-in-up-to-50;
   animation-duration: $animation-duration;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: linear;
 }
 
 .fade-in-up-header-container--5 {
   animation-name: fade-in-up-to-50;
   animation-duration: $animation-duration;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: linear;
 }
 
 @media (min-width: $screen-lg) {
   .fade-in-up-h2--2 {
     animation-name: fade-in-up-to-55;
     animation-duration: $animation-duration;
-    animation-timing-function: ease-in-out;
+    animation-timing-function: linear;
   }
 
   .fade-in-up-p--2 {
     animation-name: fade-in-up-to-65;
     animation-duration: $animation-duration;
-    animation-timing-function: ease-in-out;
+    animation-timing-function: linear;
   }
 }
