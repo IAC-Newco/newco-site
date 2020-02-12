@@ -165,11 +165,14 @@
 }
 
 .newco__section-3__img-1-container {
-  animation: pulse-brand 2s infinite;
   border-radius: 50%;
   margin: 0 auto 5px auto;
   position: relative;
   width: 55px;
+}
+
+.newco__section-3__img-1-container-pulse {
+  animation: pulse-brand 2s infinite;
 }
 
 .newco__section-3__stat {
@@ -210,12 +213,16 @@
 
 .newco__section-3__img-2-container {
   $width: 67px;
-  animation: pulse-dev 2s infinite;
   border-top-left-radius: $width * 2;
   border-top-right-radius: $width * 2;
   margin: 0 auto 5px auto;
   height: $width / 2 - 2.25px;
+  position: relative;
   width: $width;
+}
+
+.newco__section-3__img-2-container-pulse {
+  animation: pulse-dev 2s infinite;
 }
 
 .newco__section-3__stat--dev {
@@ -239,7 +246,6 @@
 }
 
 .newco__section-3__img-3-pulse {
-  animation: pulse-design 2s infinite;
   height: $shape-design-width - 10px;
   left: 50%;
   position: absolute;
@@ -249,6 +255,10 @@
   &:hover {
     cursor: pointer;
   }
+}
+
+.newco__section-3__img-3-pulse-pulse {
+  animation: pulse-design 2s infinite;
 }
 
 .newco__section-3__img-3-container {
@@ -285,10 +295,14 @@
 
 .newco__section-3__img-4-container {
   $width: 52px;
-  animation: pulse-growth 2s infinite;
   margin: 0 auto 5px auto;
   height: $width;
+  position: relative;
   width: $width;
+}
+
+.newco__section-3__img-4-container-pulse {
+  animation: pulse-growth 2s infinite;
 }
 
 .newco__section-3__stat--growth {
@@ -312,11 +326,15 @@
 
 .newco__section-3__img-5-container {
   $width: 50px;
-  animation: pulse-more 2s infinite;
   border-radius: 0 0 0 $width;
   height: $width;
   margin: 0 auto 5px auto;
+  position: relative;
   width: $width;
+}
+
+.newco__section-3__img-5-container-pulse {
+  animation: pulse-more 2s infinite;
 }
 
 .newco__section-3__stat--more {

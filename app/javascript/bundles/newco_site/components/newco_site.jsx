@@ -37,6 +37,17 @@ class NewcoSite extends Component {
     };
   }
 
+  getContainerClassName(stat) {
+    if (stat === "DESIGN") {
+      return "newco__section-3__img-3-pulse-pulse";
+    } else {
+      let pulse = "";
+      const baseClass = `newco__section-3__img-${this.STATS[stat]}-container`;
+      if (!this.state.statToRender) pulse = `${baseClass}-pulse`;
+      return `${baseClass} ${pulse}`;
+    }
+  }
+
   getStatClassName(stat) {
     let display = "";
     const baseClass = "newco__section-3__stat";
@@ -95,7 +106,7 @@ class NewcoSite extends Component {
         <div className="newco__section-3__grid">
           <div className="newco__section-3__row-1">
             <div className="newco__brand">
-              <div className="newco__section-3__img-1-container">
+              <div className={this.getContainerClassName("BRAND")}>
                 <img
                   className="newco__section-3__img"
                   onMouseEnter={() => this.setStatToRender(event, "BRAND")}
@@ -117,7 +128,7 @@ class NewcoSite extends Component {
           </div>
           <div className="newco__section-3__row-2">
             <div className="newco__dev">
-              <div className="newco__section-3__img-2-container">
+              <div className={this.getContainerClassName("DEV")}>
                 <img
                   className="newco__section-3__img"
                   onMouseEnter={() => this.setStatToRender(event, "DEV")}
@@ -138,7 +149,7 @@ class NewcoSite extends Component {
           </div>
           <div className="newco__section-3__row-3">
             <div className="newco__design">
-              <div className="newco__section-3__img-3-pulse"></div>
+              <div className={this.getContainerClassName("DESIGN")}></div>
               <div className="newco__section-3__img-3-container">
                 <img
                   className="newco__section-3__img-3"
@@ -160,7 +171,7 @@ class NewcoSite extends Component {
           </div>
           <div className="newco__section-3__row-4">
             <div className="newco__growth">
-              <div className="newco__section-3__img-4-container">
+              <div className={this.getContainerClassName("GROWTH")}>
                 <img
                   className="newco__section-3__img"
                   onMouseEnter={() => this.setStatToRender(event, "GROWTH")}
@@ -182,7 +193,7 @@ class NewcoSite extends Component {
           </div>
           <div className="newco__section-3__row-5">
             <div className="newco__more">
-              <div className="newco__section-3__img-5-container">
+              <div className={this.getContainerClassName("MORE")}>
                 <img
                   className="newco__section-3__img"
                   onMouseEnter={() => this.setStatToRender(event, "MORE")}
