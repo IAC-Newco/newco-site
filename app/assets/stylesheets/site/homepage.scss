@@ -63,7 +63,7 @@
   left: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
-  width: 86.8%; // 100 - 6.6 * 2
+  width: $absolute-width-sm;
   z-index: 3;
 }
 
@@ -98,7 +98,7 @@
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
+  width: $absolute-width-sm;
   z-index: 3;
 }
 
@@ -379,8 +379,10 @@
     top: 50px;
   }
 
-  .newco__header-container {
-    width: 48%; // 100 - 26 * 2
+  .newco__header-container,
+  .newco__h2--2,
+  .newco__p--2 {
+    width: $absolute-width-md;
   }
 
   .newco__h1 {

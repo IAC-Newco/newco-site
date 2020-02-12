@@ -23,14 +23,9 @@ $pulse-scale-3: 1;
 
 // content side padding
 $content-padding: 6.6%;
-
-@media (min-width: $screen-md) and (max-width: #{$screen-lg - 1px}) {
-  $content-padding: 26%;
-}
-
-@media (max-width: $screen-lg) {
-  $content-padding: 9.7%;
-}
+$absolute-width-sm: 100% - 6.6% * 2;
+$absolute-width-md: 100% - 26% * 2;
+$absolute-width-lg: 100% - 9.7% * 2;
 
 // z-index
 // $text-hider-z-index: 2;
