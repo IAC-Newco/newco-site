@@ -152,3 +152,17 @@ $animation-duration: 0.75s;
   animation-duration: $animation-duration;
   animation-timing-function: ease-in-out;
 }
+
+@media (min-width: $screen-lg) {
+  .fade-in-up-h2--2 {
+    animation-name: fade-in-up-to-55;
+    animation-duration: $animation-duration;
+    animation-timing-function: ease-in-out;
+  }
+
+  .fade-in-up-p--2 {
+    animation-name: fade-in-up-to-65;
+    animation-duration: $animation-duration;
+    animation-timing-function: ease-in-out;
+  }
+}
