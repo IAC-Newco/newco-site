@@ -47,7 +47,6 @@ class NewcoSite extends Component {
 
   setStatToRender = (event, stat) => {
     let statToRender = this.STATS[stat] || null;
-    // console.log("statToRender", statToRender);
     this.setState({ statToRender: statToRender });
   };
 
@@ -247,7 +246,6 @@ class NewcoSite extends Component {
   }
 
   render() {
-    console.log("state", this.state);
     return (
       <div className="newco">
         <div className="newco__logo-container">
@@ -294,7 +292,11 @@ class NewcoSite extends Component {
               $(".newco__section-2 .newco__p--2").addClass("fade-in-up-p--2");
             } else if (className == "newco__section-3") {
               $(".newco__h3--3").addClass("fade-in");
-              $(".newco__section-3__grid").addClass("fade-in");
+              $(".newco__section-3__row-1").addClass("fade-in");
+              $(".newco__section-3__row-2").addClass("fade-in");
+              $(".newco__section-3__row-3").addClass("fade-in");
+              $(".newco__section-3__row-4").addClass("fade-in");
+              $(".newco__section-3__row-5").addClass("fade-in");
               $(".newco__p--3").addClass("fade-in");
             } else if (className == "newco__section-4") {
               $(".newco__header-container--4").addClass(
@@ -417,7 +419,11 @@ class NewcoSite extends Component {
       $(".newco__p--2"),
       $(".newco__h2--2"),
       $(".newco__h3--3"),
-      $(".newco__section-3__grid"),
+      $(".newco__section-3__row-1"),
+      $(".newco__section-3__row-2"),
+      $(".newco__section-3__row-3"),
+      $(".newco__section-3__row-4"),
+      $(".newco__section-3__row-5"),
       $(".newco__p--3"),
       $(".newco__header-container--4"),
       $(".newco__header-container--5")
