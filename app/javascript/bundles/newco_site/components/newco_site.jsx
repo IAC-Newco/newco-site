@@ -364,14 +364,12 @@ class NewcoSite extends Component {
         if (shapeIsRenderedOnScreen) {
           let group = startingPositions[i]["group"];
           let startingPosition = startingPositions[i][screenSize];
-          console.log(startingPositions[i], screenSize);
           let divisor = divisors[group];
-          let yPos = 0 - (shapeY - window.innerHeight) / divisor;
+          let yPos = 0 - (scrollTop - (shapeY - window.innerHeight)) / divisor;
+
           switch (i) {
             case 0: // shape1
               shape1.style.top = startingPosition + yPos + "%";
-              // debugger;
-              console.log("hit", shape1.style.top);
               break;
             case 1: // shape2
               shape2.style.top = startingPosition + yPos + "%";
