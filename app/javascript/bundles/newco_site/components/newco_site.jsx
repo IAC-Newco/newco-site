@@ -31,7 +31,12 @@ class NewcoSite extends Component {
       GROWTH: 4,
       MORE: 5
     };
-    this.myRef = React.createRef();
+    this.DIVISORS = {
+      1: 60,
+      2: 80,
+      3: 100,
+      4: 40
+    };
     this.state = {
       statToRender: null
     };
@@ -185,7 +190,7 @@ class NewcoSite extends Component {
                   onMouseEnter={() => this.setStatToRender(event, "GROWTH")}
                   onMouseLeave={() => this.setStatToRender(null)}
                 >
-                  who have run thousands of ads
+                  who have run 1,000s of ads
                 </div>
               </div>
               <div className="newco__section-3__text">growth</div>
@@ -264,6 +269,7 @@ class NewcoSite extends Component {
 
   addScrollEvents() {
     // const
+    const divisors = this.DIVISORS;
     const shape1 = document.getElementsByClassName("shape-1")[0];
     const shape2 = document.getElementsByClassName("shape-2")[0];
     const shape3 = document.getElementsByClassName("shape-3")[0];
@@ -328,10 +334,15 @@ class NewcoSite extends Component {
       });
 
       // SHAPE PARRALAX
-      const mobileScreen = window.innerWidth < 768;
-      const tabletScreen = window.innerWidth >= 768 && window.innerWidth < 1024;
-      const desktopScreen = window.innerWidth >= 1024;
-      const noDiff = { 0: true, 1: true, 2: true, 3: true };
+      let screenSize = window.innerWidth;
+      if (screenSize < 768) {
+        screenSize = "sm";
+      } else if (screenSize >= 768 && screenSize > 1024) {
+        screenSize = "md";
+      } else if (screenSize >= 1024) {
+        screenSize = "lg";
+      }
+
       [
         shape1,
         shape2,
@@ -347,41 +358,20 @@ class NewcoSite extends Component {
         let scrollTop =
           window.pageYOffset || document.documentElement.scrollTop;
         let shapeY = rect.top + scrollTop;
-        const shapeIsRenderedOnScreen =
+        let shapeIsRenderedOnScreen =
           window.scrollY + window.innerHeight >= shapeY;
 
         if (shapeIsRenderedOnScreen) {
-          let startingPosition;
-          const group = startingPositions[i]["group"];
-          if (mobileScreen) {
-            startingPosition = startingPositions[i]["sm"];
-          } else if (tabletScreen) {
-            startingPosition = startingPositions[i]["md"];
-          } else if (desktopScreen) {
-            startingPosition = startingPositions[i]["lg"];
-          }
-          let yPos;
-          let divisor;
-
-          if (group === 1) {
-            divisor = 60;
-          } else if (group === 2) {
-            divisor = 80;
-          } else if (group === 3) {
-            divisor = 100;
-          } else if (group === 4) {
-            divisor = 40;
-          }
-
-          if (noDiff[i]) {
-            yPos = 0 - scrollTop / divisor;
-          } else {
-            yPos = 0 - (scrollTop - (shapeY - window.innerHeight)) / divisor;
-          }
-          console.log("hit", i);
+          let group = startingPositions[i]["group"];
+          let startingPosition = startingPositions[i][screenSize];
+          console.log(startingPositions[i], screenSize);
+          let divisor = divisors[group];
+          let yPos = 0 - (shapeY - window.innerHeight) / divisor;
           switch (i) {
             case 0: // shape1
               shape1.style.top = startingPosition + yPos + "%";
+              // debugger;
+              console.log("hit", shape1.style.top);
               break;
             case 1: // shape2
               shape2.style.top = startingPosition + yPos + "%";
@@ -441,7 +431,6 @@ class NewcoSite extends Component {
 
   componentDidMount() {
     $(window).scrollTop();
-    // this.myRef.current.scrollTo(0, 0);
     this.addScrollEvents();
     this.addAnimationCallbacks();
   }
