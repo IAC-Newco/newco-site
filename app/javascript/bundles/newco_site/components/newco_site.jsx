@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import $ from "jquery";
 
-// date
+// data
+import { animationCallbackSelectors } from "../data/selectors";
 import { startingPositions } from "../data/shapes_starting_positions";
 
 // images
@@ -402,28 +403,11 @@ class NewcoSite extends Component {
   }
 
   addAnimationCallbacks() {
-    const selectors = [
-      $(".newco__p--1"),
-      $(".newco__h1--1"),
-      $(".newco__p--2"),
-      $(".newco__h2--2"),
-      $(".newco__h3--3"),
-      $(".newco__section-3__row-1"),
-      $(".newco__section-3__row-2"),
-      $(".newco__section-3__row-3"),
-      $(".newco__section-3__row-4"),
-      $(".newco__section-3__row-5"),
-      $(".newco__p--3"),
-      $(".newco__header-container--4"),
-      $(".newco__header-container--5"),
-      $(".newco__section-3__stat")
-    ];
-
-    selectors.forEach(selector => {
-      selector.bind(
+    animationCallbackSelectors.forEach(selector => {
+      $(selector).bind(
         "oanimationend animationend webkitAnimationEnd",
         function() {
-          selector.css("opacity", 1);
+          $(selector).css("opacity", 1);
         }
       );
     });
