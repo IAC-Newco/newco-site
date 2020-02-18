@@ -85,12 +85,23 @@
   transform: translate(-50%, -50%);
 }
 
-.newco__h1 {
-  margin-bottom: 15px;
+.newco__h1--1 {
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: $absolute-width-sm;
+  z-index: 3;
 }
 
 .newco__p--1 {
-  width: 100%;
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  top: 68%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
 }
 
 .newco__h2--2 {
@@ -104,7 +115,6 @@
 }
 
 .newco__p--2 {
-  // animation-delay: 0s;
   left: 50%;
   opacity: 0;
   position: absolute;

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import $ from "jquery";
 
-// date
+// data
+import { animationCallbackSelectors } from "../data/selectors";
 import { startingPositions } from "../data/shapes_starting_positions";
 
 // images
@@ -76,15 +77,13 @@ class NewcoSite extends Component {
         <img className="shape shape-1" src={Shape1} alt="shape1" />
         <img className="shape shape-2" src={Shape2} alt="shape2" />
         <img className="shape shape-3" src={Shape3} alt="shape3" />
-        <div className="newco__header-container newco__header-container--1">
-          <h1 className="newco__h1">Build, better.</h1>
-          <p className="newco__p newco__p--1">
-            Newco is a platform for exceptional entrepreneurs to build
-            businesses - supported by an ecosystem that has produced 10 public
-            companies.
-          </p>
-        </div>
-        <div />
+        <h1 className="newco__h1 newco__h1--1 fade-in-up-h1--1">
+          Build, better.
+        </h1>
+        <p className="newco__p newco__p--1 fade-in-up-p--1">
+          Newco is a platform for exceptional entrepreneurs to build businesses
+          - supported by an ecosystem that has produced 10 public companies.
+        </p>
       </div>
     );
   }
@@ -251,7 +250,7 @@ class NewcoSite extends Component {
 
   render() {
     return (
-      <div className="newco" ref={this.myRef}>
+      <div className="newco">
         <div className="newco__logo-container">
           <div className="newco__logo-img-container">
             <img className="newco__logo-img" src={Logo} />
@@ -280,6 +279,8 @@ class NewcoSite extends Component {
     const shape8 = document.getElementsByClassName("shape-8")[0];
     const shape9 = document.getElementsByClassName("shape-9")[0];
 
+    const h11 = $(".newco__h1--1");
+    const p1 = $(".newco__p--1");
     const h22 = $(".newco__h2--2");
     const p2 = $(".newco__p--2");
     const h33 = $(".newco__h3--3");
@@ -402,26 +403,11 @@ class NewcoSite extends Component {
   }
 
   addAnimationCallbacks() {
-    const selectors = [
-      $(".newco__p--2"),
-      $(".newco__h2--2"),
-      $(".newco__h3--3"),
-      $(".newco__section-3__row-1"),
-      $(".newco__section-3__row-2"),
-      $(".newco__section-3__row-3"),
-      $(".newco__section-3__row-4"),
-      $(".newco__section-3__row-5"),
-      $(".newco__p--3"),
-      $(".newco__header-container--4"),
-      $(".newco__header-container--5"),
-      $(".newco__section-3__stat")
-    ];
-
-    selectors.forEach(selector => {
-      selector.bind(
+    animationCallbackSelectors.forEach(selector => {
+      $(selector).bind(
         "oanimationend animationend webkitAnimationEnd",
         function() {
-          selector.css("opacity", 1);
+          $(selector).css("opacity", 1);
         }
       );
     });
@@ -431,6 +417,10 @@ class NewcoSite extends Component {
     $(window).scrollTop();
     this.addScrollEvents();
     this.addAnimationCallbacks();
+
+    $(document).ready(function() {
+      console.log("document ready!");
+    });
   }
 }
 
