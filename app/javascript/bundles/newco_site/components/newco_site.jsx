@@ -198,10 +198,6 @@ class NewcoSite extends Component {
       $(window).scrollTop();
       this.addScrollEvents();
       this.addAnimationCallbacks();
-
-      $(document).ready(function() {
-        console.log("document ready!");
-      });
     }
   }
 

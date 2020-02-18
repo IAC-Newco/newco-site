@@ -1,22 +1,36 @@
+// animation
+$animation-duration: 2.75s;
+$animation-delay: $animation-duration / 4;
+
 // shapes
+$shape-1-height-md: 186.28px;
 $shape-1-height-lg: 282px;
+$shape-1-width-md: 181px;
 $shape-1-width-lg: 274px;
 
+$shape-2-height-md: 78.984px;
 $shape-2-height-lg: 119px;
+$shape-2-width-md: 77px;
 $shape-2-width-lg: 116px;
 
+$shape-3-height-md: 338.578px;
 $shape-3-height-lg: 513px;
+$shape-3-width-md: 165px;
 $shape-3-width-lg: 250px;
 
+$shape-4-height-md: 73.672px;
 $shape-4-height-lg: 111px;
+$shape-4-width-md: 76px;
 $shape-4-width-lg: 114px;
 
+$shape-5-height-md: 205px;
 $shape-5-height-lg: 310px;
+$shape-5-width-md: 200px;
 $shape-5-width-lg: 301px;
 
 // paddings
 // $padding-bottom-sm
-// $padding-bottom-md
+$padding-bottom-md: 100px;
 $padding-bottom-lg: 50px;
 
 .loading-screen {
@@ -39,11 +53,20 @@ $padding-bottom-lg: 50px;
   color: $white;
   display: none;
   font-family: "Cambon";
-  font-size: 100px;
+  font-size: 42px;
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
   right: 50px;
+}
+
+@include keyframes(ls-shape-1-md) {
+  0% {
+    top: -$shape-1-height-md;
+  }
+  100% {
+    top: calc(100% - #{$shape-1-height-md} - #{$padding-bottom-md});
+  }
 }
 
 @include keyframes(ls-shape-1-lg) {
@@ -52,6 +75,15 @@ $padding-bottom-lg: 50px;
   }
   100% {
     top: calc(100% - #{$shape-1-height-lg} - #{$padding-bottom-lg});
+  }
+}
+
+@include keyframes(ls-shape-2-md) {
+  0% {
+    top: -$shape-2-height-md;
+  }
+  100% {
+    top: calc(100% - #{$shape-2-height-md} - #{$padding-bottom-md});
   }
 }
 
@@ -64,12 +96,32 @@ $padding-bottom-lg: 50px;
   }
 }
 
+@include keyframes(ls-shape-3-md) {
+  0% {
+    top: -$shape-3-height-md;
+  }
+  100% {
+    top: calc(100% - #{$shape-3-height-md} - #{$padding-bottom-md});
+  }
+}
+
 @include keyframes(ls-shape-3-lg) {
   0% {
     top: -$shape-3-height-lg;
   }
   100% {
     top: calc(100% - #{$shape-3-height-lg} - #{$padding-bottom-lg});
+  }
+}
+
+@include keyframes(ls-shape-4-md) {
+  0% {
+    top: -$shape-4-height-md;
+  }
+  100% {
+    top: calc(
+      100% - #{$shape-1-height-md} - #{$shape-4-height-md} - #{$padding-bottom-md}
+    );
   }
 }
 
@@ -80,6 +132,18 @@ $padding-bottom-lg: 50px;
   100% {
     top: calc(
       100% - #{$shape-1-height-lg} - #{$shape-4-height-lg} - #{$padding-bottom-lg}
+    );
+  }
+}
+
+@include keyframes(ls-shape-5-md) {
+  0% {
+    top: -$shape-5-height-md;
+  }
+  100% {
+    top: calc(
+      100% - #{$shape-1-height-md} - #{$shape-5-height-md} - #{$padding-bottom-md} +
+        2px
     );
   }
 }
@@ -96,21 +160,89 @@ $padding-bottom-lg: 50px;
   }
 }
 
+@media (min-width: $screen-md) and (max-width: #{$screen-lg - 1px}) {
+  .loading-screen__percent {
+    display: block;
+    font-size: 60px;
+  }
+
+  .loading-screen__shapes-container {
+    box-sizing: border-box;
+    margin: 0 auto 0 15%;
+    padding-bottom: $padding-bottom-md;
+    width: 400px;
+  }
+
+  .loading-screen__shape--1 {
+    animation-name: ls-shape-1-md;
+    animation-duration: $animation-duration;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    top: -$shape-1-height-md;
+    width: $shape-1-width-md;
+  }
+
+  .loading-screen__shape--2 {
+    animation-name: ls-shape-2-md;
+    animation-duration: $animation-duration;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-delay: $animation-delay;
+    left: calc(#{$shape-1-width-md} + #{$shape-3-width-md} - 47px);
+    top: -$shape-2-height-md;
+    width: $shape-2-width-md;
+  }
+
+  .loading-screen__shape--3 {
+    animation-name: ls-shape-3-md;
+    animation-duration: $animation-duration;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-delay: $animation-delay * 2;
+    left: $shape-1-width-md;
+    top: -$shape-3-height-md;
+    width: $shape-3-width-md;
+  }
+
+  .loading-screen__shape--4 {
+    animation-name: ls-shape-4-md;
+    animation-duration: $animation-duration;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-delay: $animation-delay * 3;
+    left: calc(#{$shape-1-width-md} / 2 + 15px);
+    top: -$shape-4-height-md;
+    width: $shape-4-width-md;
+  }
+
+  .loading-screen__shape--5 {
+    animation-name: ls-shape-5-md;
+    animation-duration: $animation-duration;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-delay: $animation-delay * 4;
+    left: -44px;
+    top: -$shape-5-height-md;
+    width: $shape-5-width-md;
+  }
+}
+
 @media (min-width: $screen-lg) {
   .loading-screen__percent {
     display: block;
+    font-size: 100px;
   }
 
   .loading-screen__shapes-container {
     box-sizing: border-box;
     margin: 0 auto 0 10%;
-    padding-bottom: $padding-bottom-lg;
+    padding-bottom: $padding-bottom-md;
     width: 625px;
   }
 
   .loading-screen__shape--1 {
     animation-name: ls-shape-1-lg;
-    animation-duration: 2s;
+    animation-duration: $animation-duration;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
     top: -$shape-1-height-lg;
@@ -119,10 +251,10 @@ $padding-bottom-lg: 50px;
 
   .loading-screen__shape--2 {
     animation-name: ls-shape-2-lg;
-    animation-duration: 2s;
+    animation-duration: $animation-duration;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
-    animation-delay: 0.5s;
+    animation-delay: $animation-delay;
     left: calc(#{$shape-1-width-lg} + #{$shape-3-width-lg} - 72px);
     top: -$shape-2-height-lg;
     width: $shape-2-width-lg;
@@ -130,10 +262,10 @@ $padding-bottom-lg: 50px;
 
   .loading-screen__shape--3 {
     animation-name: ls-shape-3-lg;
-    animation-duration: 2s;
+    animation-duration: $animation-duration;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
-    animation-delay: 1s;
+    animation-delay: $animation-delay * 2;
     left: $shape-1-width-lg;
     top: -$shape-3-height-lg;
     width: $shape-3-width-lg;
@@ -141,10 +273,10 @@ $padding-bottom-lg: 50px;
 
   .loading-screen__shape--4 {
     animation-name: ls-shape-4-lg;
-    animation-duration: 2s;
+    animation-duration: $animation-duration;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
-    animation-delay: 1.5s;
+    animation-delay: $animation-delay * 3;
     left: calc(#{$shape-1-width-lg} / 2 + 24px);
     top: -$shape-4-height-lg;
     width: $shape-4-width-lg;
@@ -152,10 +284,10 @@ $padding-bottom-lg: 50px;
 
   .loading-screen__shape--5 {
     animation-name: ls-shape-5-lg;
-    animation-duration: 2s;
+    animation-duration: $animation-duration;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
-    animation-delay: 2s;
+    animation-delay: $animation-delay * 4;
     left: -62px;
     top: -$shape-5-height-lg;
     width: $shape-5-width-lg;

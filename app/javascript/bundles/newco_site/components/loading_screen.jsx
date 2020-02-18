@@ -16,11 +16,31 @@ class LoadingScreen extends Component {
     };
   }
 
-  incrementLoadingPercent(increment) {
+  incrementLoadingPercent() {
+    const { loadingPercent } = this.state;
+    let increment;
+
+    if (loadingPercent < 85) {
+      increment = 1;
+    } else if (loadingPercent < 92) {
+      increment = 0.5;
+    } else if (loadingPercent < 97) {
+      increment = 0.25;
+    } else if (loadingPercent < 100) {
+      increment = 0.125;
+    } else {
+      increment = 1;
+    }
+
     this.setState({ loadingPercent: this.state.loadingPercent + increment });
   }
 
   render() {
+    const loadingPercent =
+      this.state.loadingPercent > 100
+        ? 100
+        : Math.floor(this.state.loadingPercent);
+
     return (
       <div className="loading-screen">
         <div className="loading-screen__shapes-container">
@@ -45,9 +65,7 @@ class LoadingScreen extends Component {
             src={Shape5}
           />
         </div>
-        <div className="loading-screen__percent">
-          {this.state.loadingPercent}
-        </div>
+        <div className="loading-screen__percent">{loadingPercent}</div>
       </div>
     );
   }
@@ -55,15 +73,19 @@ class LoadingScreen extends Component {
   componentDidMount() {
     const that = this;
     function timer() {
-      if (that.state.loadingPercent >= 100) {
-        clearInterval(myVar);
-        that.props.completeLoading();
+      if (that.state.loadingPercent > 100) {
+        if (that.state.loadingPercent > 150) {
+          clearInterval(interval);
+          // that.props.completeLoading();
+        } else {
+          that.incrementLoadingPercent();
+        }
       } else {
-        that.incrementLoadingPercent(1);
+        that.incrementLoadingPercent();
       }
     }
 
-    const myVar = setInterval(timer, 37.5);
+    const interval = setInterval(timer, 37.5);
   }
 }
 
