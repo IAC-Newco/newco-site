@@ -14,25 +14,38 @@ class LoadingScreen extends Component {
     this.state = {
       loadingPercent: 0
     };
+
+    this.incrementLoadingPercent = this.incrementLoadingPercent.bind(this);
   }
 
   incrementLoadingPercent() {
     const { loadingPercent } = this.state;
     let increment;
 
-    if (loadingPercent < 85) {
-      increment = 1;
-    } else if (loadingPercent < 92) {
+    if (loadingPercent < 50) {
       increment = 0.5;
-    } else if (loadingPercent < 97) {
-      increment = 0.25;
+    } else if (loadingPercent < 85) {
+      increment = 0.33;
     } else if (loadingPercent < 100) {
       increment = 0.125;
     } else {
-      increment = 1;
+      increment = 0.5;
     }
 
-    this.setState({ loadingPercent: this.state.loadingPercent + increment });
+    this.setState(
+      { loadingPercent: this.state.loadingPercent + increment },
+      () => {
+        if (this.state.loadingPercent > 100) {
+          if (this.state.loadingPercent > 150) {
+            this.props.completeLoading();
+          } else {
+            window.requestAnimationFrame(this.incrementLoadingPercent);
+          }
+        } else {
+          window.requestAnimationFrame(this.incrementLoadingPercent);
+        }
+      }
+    );
   }
 
   render() {
@@ -71,21 +84,7 @@ class LoadingScreen extends Component {
   }
 
   componentDidMount() {
-    const that = this;
-    function timer() {
-      if (that.state.loadingPercent > 100) {
-        if (that.state.loadingPercent > 150) {
-          clearInterval(interval);
-          that.props.completeLoading();
-        } else {
-          that.incrementLoadingPercent();
-        }
-      } else {
-        that.incrementLoadingPercent();
-      }
-    }
-
-    const interval = setInterval(timer, 37.5);
+    window.requestAnimationFrame(this.incrementLoadingPercent);
   }
 }
 
