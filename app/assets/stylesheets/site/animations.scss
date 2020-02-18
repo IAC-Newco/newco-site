@@ -2,8 +2,10 @@
 // $fade-in-up-to-tops: 50, 55, 65, 68;
 // @each $top in $fade-in-up-to-tops {
 //   $start: $top + 20;
+//   // @debug math.$start;
+//   $end: $top;
 //   @include keyframes(fade-in-up-to-#{$top}) {
-//     @include fade-in-up-to($start / 100, $top / 100);
+//     @include fade-in-up-to($start, $end);
 //   }
 // }
 

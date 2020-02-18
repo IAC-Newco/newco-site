@@ -192,10 +192,6 @@ class NewcoSite extends Component {
     this.setState({ loaded: true });
   };
 
-  moveSecondCursor = event => {
-    console.log("yo", event);
-  };
-
   getContainerClassName(stat) {
     if (stat === "DESIGN") {
       return "newco__section-3__img-3-pulse-pulse";
@@ -406,7 +402,7 @@ class NewcoSite extends Component {
       return <LoadingScreen completeLoading={this.completeLoading} />;
 
     return (
-      <div className="newco" onMouseMove={this.moveSecondCursor}>
+      <div className="newco">
         <div className="newco__logo-container">
           <div className="newco__logo-img-container">
             <img className="newco__logo-img" src={Logo} />
