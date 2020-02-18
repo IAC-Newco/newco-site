@@ -5,7 +5,6 @@ import $ from "jquery";
 import LoadingScreen from "./loading_screen";
 
 // data
-import { animationCallbackSelectors } from "../data/selectors";
 import { startingPositions } from "../data/shapes_starting_positions";
 
 // images
@@ -182,27 +181,19 @@ class NewcoSite extends Component {
     });
   }
 
-  addAnimationCallbacks() {
-    animationCallbackSelectors.forEach(selector => {
-      $(selector).bind(
-        "oanimationend animationend webkitAnimationEnd",
-        function() {
-          $(selector).css("opacity", 1);
-        }
-      );
-    });
-  }
-
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (!prevState.loaded && this.state.loaded) {
       $(window).scrollTop();
       this.addScrollEvents();
-      this.addAnimationCallbacks();
     }
   }
 
   completeLoading = () => {
     this.setState({ loaded: true });
+  };
+
+  moveSecondCursor = event => {
+    console.log("yo", event);
   };
 
   getContainerClassName(stat) {
@@ -415,7 +406,7 @@ class NewcoSite extends Component {
       return <LoadingScreen completeLoading={this.completeLoading} />;
 
     return (
-      <div className="newco">
+      <div className="newco" onMouseMove={this.moveSecondCursor}>
         <div className="newco__logo-container">
           <div className="newco__logo-img-container">
             <img className="newco__logo-img" src={Logo} />

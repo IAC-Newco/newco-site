@@ -1,9 +1,9 @@
 // keyframes
-// $fade-in-up-to-tops: 45, 50, 55, 60, 65, 70;
-// $fade-in-up-to-tops: 65;
+// $fade-in-up-to-tops: 50, 55, 65, 68;
 // @each $top in $fade-in-up-to-tops {
-//   @include keyfames(fade-in-up-to-#{$top}) {
-//     @include fade-in-up-to(140%, ($top) #{"%"});
+//   $start: $top + 20;
+//   @include keyframes(fade-in-up-to-#{$top}) {
+//     @include fade-in-up-to($start / 100, $top / 100);
 //   }
 // }
 
@@ -123,25 +123,13 @@
   }
 }
 
-// classes
-.animation-delay-2s {
-  @include animation-delay(2s);
-}
-
-.animation-delay-4s {
-  @include animation-delay(4s);
-}
-
-.animation-delay-6s {
-  @include animation-delay(6s);
-}
-
 $animation-duration: 1s;
 
 .fade-in {
   animation-name: fade-in;
   animation-duration: $animation-duration;
   animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
 }
 
 .fade-out {
@@ -155,6 +143,7 @@ $animation-duration: 1s;
   animation-name: fade-in-up-to-50;
   animation-duration: $animation-duration;
   animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
 }
 
 .fade-in-up-p--1,
@@ -162,18 +151,21 @@ $animation-duration: 1s;
   animation-name: fade-in-up-to-68;
   animation-duration: $animation-duration;
   animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
 }
 
 .fade-in-up-header-container--4 {
   animation-name: fade-in-up-to-50;
   animation-duration: $animation-duration;
   animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
 }
 
 .fade-in-up-header-container--5 {
   animation-name: fade-in-up-to-50;
   animation-duration: $animation-duration;
   animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
 }
 
 @media (min-width: $screen-lg) {
@@ -181,11 +173,13 @@ $animation-duration: 1s;
     animation-name: fade-in-up-to-55;
     animation-duration: $animation-duration;
     animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
   }
 
   .fade-in-up-p--2 {
     animation-name: fade-in-up-to-65;
     animation-duration: $animation-duration;
     animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
   }
 }

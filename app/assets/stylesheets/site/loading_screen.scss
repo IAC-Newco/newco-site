@@ -43,89 +43,6 @@ $padding-bottom-sm: 50px;
 $padding-bottom-md: 100px;
 $padding-bottom-lg: 50px;
 
-.loading-screen {
-  background: $black;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.loading-screen__shapes-container {
-  box-sizing: border-box;
-  height: 100%;
-  margin: 0 auto;
-  position: relative;
-  padding-bottom: $padding-bottom-sm;
-  width: 300px;
-}
-
-.loading-screen__shape {
-  position: absolute;
-  z-index: 1;
-}
-
-.loading-screen__shape--1 {
-  animation-name: ls-shape-1-sm;
-  animation-duration: $animation-duration;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
-  top: -$shape-1-height-sm;
-  width: $shape-1-width-sm;
-}
-
-.loading-screen__shape--2 {
-  animation-name: ls-shape-2-sm;
-  animation-duration: $animation-duration;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
-  animation-delay: $animation-delay;
-  left: calc(#{$shape-1-width-sm} + #{$shape-3-width-sm} - 36px);
-  top: -$shape-2-height-sm;
-  width: $shape-2-width-sm;
-}
-
-.loading-screen__shape--3 {
-  animation-name: ls-shape-3-sm;
-  animation-duration: $animation-duration;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
-  animation-delay: $animation-delay * 2;
-  left: $shape-1-width-sm;
-  top: -$shape-3-height-sm;
-  width: $shape-3-width-sm;
-}
-
-.loading-screen__shape--4 {
-  animation-name: ls-shape-4-sm;
-  animation-duration: $animation-duration;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
-  animation-delay: $animation-delay * 3;
-  left: calc(#{$shape-1-width-sm} / 2 + 12px);
-  top: -$shape-4-height-sm;
-  width: $shape-4-width-sm;
-}
-
-.loading-screen__shape--5 {
-  animation-name: ls-shape-5-sm;
-  animation-duration: $animation-duration;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
-  animation-delay: $animation-delay * 4;
-  left: -32px;
-  top: -$shape-5-height-sm;
-  width: $shape-5-width-sm;
-}
-
-.loading-screen__percent {
-  color: $white;
-  font-family: "Cambon";
-  font-size: 32px;
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  z-index: 2;
-}
-
 @include keyframes(ls-shape-1-sm) {
   0% {
     top: -$shape-1-height-sm;
@@ -274,6 +191,89 @@ $padding-bottom-lg: 50px;
         2px
     );
   }
+}
+
+.loading-screen {
+  background: $black;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.loading-screen__shapes-container {
+  box-sizing: border-box;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: $padding-bottom-sm;
+  width: 300px;
+}
+
+.loading-screen__shape {
+  position: absolute;
+  z-index: 1;
+}
+
+.loading-screen__shape--1 {
+  animation-name: ls-shape-1-sm;
+  animation-duration: $animation-duration;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  top: -$shape-1-height-sm;
+  width: $shape-1-width-sm;
+}
+
+.loading-screen__shape--2 {
+  animation-name: ls-shape-2-sm;
+  animation-duration: $animation-duration;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: $animation-delay;
+  left: calc(#{$shape-1-width-sm} + #{$shape-3-width-sm} - 36px);
+  top: -$shape-2-height-sm;
+  width: $shape-2-width-sm;
+}
+
+.loading-screen__shape--3 {
+  animation-name: ls-shape-3-sm;
+  animation-duration: $animation-duration;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: $animation-delay * 2;
+  left: $shape-1-width-sm;
+  top: -$shape-3-height-sm;
+  width: $shape-3-width-sm;
+}
+
+.loading-screen__shape--4 {
+  animation-name: ls-shape-4-sm;
+  animation-duration: $animation-duration;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: $animation-delay * 3;
+  left: calc(#{$shape-1-width-sm} / 2 + 12px);
+  top: -$shape-4-height-sm;
+  width: $shape-4-width-sm;
+}
+
+.loading-screen__shape--5 {
+  animation-name: ls-shape-5-sm;
+  animation-duration: $animation-duration;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: $animation-delay * 4;
+  left: -32px;
+  top: -$shape-5-height-sm;
+  width: $shape-5-width-sm;
+}
+
+.loading-screen__percent {
+  color: $white;
+  font-family: "Cambon";
+  font-size: 32px;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  z-index: 2;
 }
 
 @media (min-width: $screen-md) and (max-width: #{$screen-lg - 1px}) {

@@ -1,6 +1,8 @@
 .newco {
   background: $green;
   height: 100%;
+  overflow: hidden;
+  position: relative;
   transition: background-color 1s ease;
 }
 
@@ -22,11 +24,6 @@
 
 .color-white {
   background: $white;
-}
-
-.newco {
-  overflow: hidden;
-  position: relative;
 }
 
 .newco__logo-container {
