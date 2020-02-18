@@ -250,7 +250,7 @@ class NewcoSite extends Component {
 
   render() {
     return (
-      <div className="newco" ref={this.myRef}>
+      <div className="newco">
         <div className="newco__logo-container">
           <div className="newco__logo-img-container">
             <img className="newco__logo-img" src={Logo} />
@@ -417,6 +417,10 @@ class NewcoSite extends Component {
     $(window).scrollTop();
     this.addScrollEvents();
     this.addAnimationCallbacks();
+
+    $(document).ready(function() {
+      console.log("document ready!");
+    });
   }
 }
 
