@@ -76,7 +76,7 @@ class LoadingScreen extends Component {
       if (that.state.loadingPercent > 100) {
         if (that.state.loadingPercent > 150) {
           clearInterval(interval);
-          // that.props.completeLoading();
+          that.props.completeLoading();
         } else {
           that.incrementLoadingPercent();
         }
