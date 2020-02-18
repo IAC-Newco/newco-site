@@ -25,6 +25,15 @@
   }
 }
 
+@include keyframes(fall-top-to-bottom) {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
 @include keyframes(fade-in-up-to-45) {
   @include fade-in-up-to(140%, 45%);
 }
@@ -127,7 +136,7 @@
   @include animation-delay(6s);
 }
 
-$animation-duration: 0.75s;
+$animation-duration: 1s;
 
 .fade-in {
   animation-name: fade-in;
