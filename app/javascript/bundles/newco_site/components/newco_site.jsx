@@ -397,12 +397,20 @@ class NewcoSite extends Component {
     );
   }
 
+  drawCircleCursor(event) {
+    $(".newco__black-circle-cursor").css({
+      left: event.pageX,
+      top: event.pageY
+    });
+  }
+
   render() {
     if (!this.state.loaded)
       return <LoadingScreen completeLoading={this.completeLoading} />;
 
     return (
-      <div className="newco">
+      <div className="newco" onMouseMove={this.drawCircleCursor}>
+        <div className="newco__black-circle-cursor" />
         <div className="newco__logo-container fade-in">
           <div className="newco__logo-img-container">
             <img className="newco__logo-img" src={Logo} />

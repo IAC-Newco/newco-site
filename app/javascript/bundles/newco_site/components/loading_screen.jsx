@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 // images
-import Logo from "images/logo.png";
 import Shape1 from "images/loading_screen/shape1.png";
 import Shape2 from "images/loading_screen/shape2.png";
 import Shape3 from "images/loading_screen/shape3.png";
