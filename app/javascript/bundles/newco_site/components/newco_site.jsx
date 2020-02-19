@@ -223,9 +223,9 @@ class NewcoSite extends Component {
         data-color="green"
         id="section-1"
       >
-        <img className="shape shape-1" src={Shape1} alt="shape1" />
-        <img className="shape shape-2" src={Shape2} alt="shape2" />
-        <img className="shape shape-3" src={Shape3} alt="shape3" />
+        <img className="shape shape-1 fade-in" src={Shape1} alt="shape1" />
+        <img className="shape shape-2 fade-in" src={Shape2} alt="shape2" />
+        <img className="shape shape-3 fade-in" src={Shape3} alt="shape3" />
         <h1 className="newco__h1 newco__h1--1 fade-in-up-h1--1">
           Build, better.
         </h1>
@@ -240,7 +240,7 @@ class NewcoSite extends Component {
   renderSectionTwo() {
     return (
       <div className="newco__section-2 content-padding panel" data-color="blue">
-        <img className="shape shape-4" src={Shape4} alt="shape4" />
+        <img className="shape shape-4 fade-in" src={Shape4} alt="shape4" />
         <img className="shape shape-5" src={Shape5} alt="shape5" />
         <h2 className="newco__h2 newco__h2--2">
           We work with founders from Day 0
@@ -403,7 +403,7 @@ class NewcoSite extends Component {
 
     return (
       <div className="newco">
-        <div className="newco__logo-container">
+        <div className="newco__logo-container fade-in">
           <div className="newco__logo-img-container">
             <img className="newco__logo-img" src={Logo} />
           </div>

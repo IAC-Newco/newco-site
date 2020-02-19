@@ -23,20 +23,20 @@ class LoadingScreen extends Component {
     let increment;
 
     if (loadingPercent < 50) {
-      increment = 0.5;
+      increment = 1.5;
     } else if (loadingPercent < 85) {
-      increment = 0.33;
+      increment = 1;
     } else if (loadingPercent < 100) {
-      increment = 0.125;
-    } else {
       increment = 0.5;
+    } else {
+      increment = 1.5;
     }
 
     this.setState(
       { loadingPercent: this.state.loadingPercent + increment },
       () => {
         if (this.state.loadingPercent > 100) {
-          if (this.state.loadingPercent > 150) {
+          if (this.state.loadingPercent > 160) {
             this.props.completeLoading();
           } else {
             window.requestAnimationFrame(this.incrementLoadingPercent);

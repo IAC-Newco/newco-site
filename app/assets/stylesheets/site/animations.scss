@@ -140,7 +140,14 @@ $animation-duration: 1s;
   animation-timing-function: ease-in-out;
 }
 
-.fade-in-up-h1--1,
+.fade-in-up-h1--1 {
+  animation-name: fade-in-up-to-50;
+  animation-duration: $animation-duration;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  animation-delay: 1s;
+}
+
 .fade-in-up-h2--2 {
   animation-name: fade-in-up-to-50;
   animation-duration: $animation-duration;
@@ -148,7 +155,14 @@ $animation-duration: 1s;
   animation-fill-mode: both;
 }
 
-.fade-in-up-p--1,
+.fade-in-up-p--1 {
+  animation-name: fade-in-up-to-68;
+  animation-duration: $animation-duration;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  animation-delay: 1s;
+}
+
 .fade-in-up-p--2 {
   animation-name: fade-in-up-to-68;
   animation-duration: $animation-duration;
