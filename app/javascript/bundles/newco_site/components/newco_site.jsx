@@ -237,7 +237,6 @@ class NewcoSite extends Component {
 
   setStatToRender = (event, stat) => {
     let statToRender = this.STATS[stat] || null;
-    console.log("hit", stat, statToRender);
     this.setState({ statToRender: statToRender });
   };
 
@@ -381,14 +380,9 @@ class NewcoSite extends Component {
     );
   }
 
-  componentDidMount() {
-    // this.setState({ loaded: true });
-  }
-
   render() {
     if (!this.state.loaded)
       return <LoadingScreen completeLoading={this.completeLoading} />;
-    // return null;
 
     return (
       <div className="newco">
