@@ -288,7 +288,7 @@ class NewcoSite extends Component {
           <div className="newco__section-3__row-1">
             <NewcoTeamOf
               imgSrc={Brand}
-              memberTitle={["brand", "strategist"]}
+              memberTitle={["brand", "strategists"]}
               memberDescription="who have crafted 83 brand identities"
               setStatToRender={this.setStatToRender}
               stat="brand"
