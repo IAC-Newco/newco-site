@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import $ from "jquery";
 import curDot from "cursor-dot";
-import isEl from "cursor-dot";
 
 // React.js components
 import LoadingScreen from "./loading_screen";

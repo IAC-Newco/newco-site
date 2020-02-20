@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import $ from "jquery";
 
 class NewcoTeamOf extends Component {
   statIsBeingRendered() {
@@ -81,6 +82,13 @@ class NewcoTeamOf extends Component {
       );
     });
   }
+
+  setDescriptionPosition = event => {
+    $(`.newco__section-3__stat--${this.props.stat}`).css({
+      left: event.pageX,
+      top: event.pageY
+    });
+  };
 
   render() {
     const { stat } = this.props;
