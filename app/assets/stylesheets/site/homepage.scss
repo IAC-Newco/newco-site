@@ -657,13 +657,15 @@ body {
   }
 
   .newco__more {
-    margin: 0 0 0 auto;
+    margin: 0 auto;
+    // margin: 0 0 0 auto;
   }
 
   .newco__section-3__row-5 {
-    animation-delay: 0.75s;
+    animation-delay: 1.25s;
     grid-column: 2 / 3;
-    grid-row: 2 / 3;
+    // grid-row: 2 / 3;
+    grid-row: 3 / 4;
     padding-top: 15px;
   }
 
@@ -672,14 +674,16 @@ body {
   }
 
   .newco__section-3__row-4 {
-    animation-delay: 1.25s;
+    animation-delay: 0.75s;
     grid-column: 2 / 3;
-    grid-row: 3 / 4;
+    // grid-row: 3 / 4;
+    grid-row: 2 / 3;
     padding-top: 35px;
   }
 
   .newco__growth {
-    margin: 0 auto;
+    // margin: 0 auto;
+    margin: 0 5% 0 auto;
   }
 
   .newco__p--3 {
