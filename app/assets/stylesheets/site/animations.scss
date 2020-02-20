@@ -20,10 +20,10 @@
 
 @include keyframes(fade-out) {
   0% {
-    opacity: 0;
+    opacity: 1;
   }
   100% {
-    opacity: 1;
+    opacity: 0;
   }
 }
 
@@ -136,8 +136,9 @@ $animation-duration: 1s;
 
 .fade-out {
   animation-name: fade-out;
-  animation-duration: $animation-duration;
+  animation-duration: 0.5s;
   animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
 }
 
 .fade-in-up-h1--1 {
