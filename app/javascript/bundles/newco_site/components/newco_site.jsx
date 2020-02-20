@@ -203,6 +203,7 @@ class NewcoSite extends Component {
       const that = this;
       this.addScrollEvents();
       this.setupCursorDot();
+      this.checkBrowserType();
     }
   }
 
@@ -407,15 +408,14 @@ class NewcoSite extends Component {
   }
 
   componentDidMount() {
-    this.setState({ loaded: true }, () => {
-      this.checkBrowserType();
-    });
+    // this.setState({ loaded: true }, () => {
+    // this.checkBrowserType();
+    // });
   }
 
   render() {
     if (!this.state.loaded)
-      // return <LoadingScreen completeLoading={this.completeLoading} />;
-      return null;
+      return <LoadingScreen completeLoading={this.completeLoading} />;
 
     return (
       <div className="newco">
