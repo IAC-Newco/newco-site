@@ -205,31 +205,26 @@ body {
 }
 
 .newco__section-3__stat {
-  background: $black;
+  background: transparent;
   box-sizing: border-box;
   color: $white;
   font-family: "Cambon";
   font-size: 25px;
   height: 160px;
   line-height: 32px;
+  left: 50%;
   opacity: 0;
   padding-left: 10px;
   padding-right: 10px;
+  padding-top: 15px;
+  top: 50%;
+  transform: translate(-50%, -50%);
   position: absolute;
   text-align: center;
   width: 160px;
   &:hover {
     cursor: pointer;
   }
-}
-
-.newco__section-3__stat {
-  padding-top: 15px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background: transparent;
-  color: $white;
 }
 
 // row 2
@@ -413,7 +408,7 @@ body {
 .shape {
   // mix-blend-mode: exclusion;
   position: absolute;
-  z-index: 2;
+  z-index: -1;
 }
 
 .shape-1 {

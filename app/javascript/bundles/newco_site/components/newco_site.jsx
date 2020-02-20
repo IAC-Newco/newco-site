@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import $ from "jquery";
-import curDot from "cursor-dot";
+import curDot from "../utils/cursor_dot";
 
 // React.js components
 import LoadingScreen from "./loading_screen";
@@ -44,6 +44,7 @@ class NewcoSite extends Component {
     };
     this.state = {
       cursorPos: { x: null, y: null },
+      isChrome: false,
       loaded: false,
       statToRender: null,
       updatedCursorCss: false
@@ -191,8 +192,8 @@ class NewcoSite extends Component {
       diameter: 75
     });
 
-    cursor.over(".newco__stat ", {
-      background: "#000",
+    cursor.over(".newco__stat", {
+      background: "#000000",
       scale: 3
     });
   }
@@ -211,6 +212,15 @@ class NewcoSite extends Component {
 
   setStatToRender = (event, stat) => {
     let statToRender = this.STATS[stat] || null;
+
+    if (this.state.isChrome) {
+      if (statToRender) {
+        $(".cursor-dot").css("mix-blend-mode", "exclusion");
+      } else {
+        $(".cursor-dot").css("mix-blend-mode", "");
+      }
+    }
+
     this.setState({ statToRender: statToRender });
   };
 
@@ -372,25 +382,40 @@ class NewcoSite extends Component {
     );
   }
 
-  updateCursorCss = (remove = false) => {
-    // if (document.querySelectorAll("div").length === 42) {
-    //   const cursor = document.querySelectorAll("div")[41];
-    //   if (remove) {
-    //     cursor.style.zIndex = 3;
-    //     cursor.style.removeProperty("mix-blend-mode");
-    //   } else {
-    //     debugger;
-    //     cursor.style.mixBlendMode = "exclusion";
-    //     debugger;
-    //     // cursor.style.removeProperty("z-index");
-    //   }
-    //   console.log("hit", remove, cursor);
-    // }
-  };
+  checkBrowserType() {
+    const isChromium = window.chrome;
+    const winNav = window.navigator;
+    const vendorName = winNav.vendor;
+    const isOpera = typeof window.opr !== "undefined";
+    const isIEedge = winNav.userAgent.indexOf("Edge") > -1;
+    const isIOSChrome = winNav.userAgent.match("CriOS");
+
+    if (isIOSChrome) {
+      // is Google Chrome on IOS
+    } else if (
+      isChromium !== null &&
+      typeof isChromium !== "undefined" &&
+      vendorName === "Google Inc." &&
+      isOpera === false &&
+      isIEedge === false
+    ) {
+      this.setState({ isChrome: true });
+      // is Google Chrome
+    } else {
+      // not Google Chrome
+    }
+  }
+
+  componentDidMount() {
+    this.setState({ loaded: true }, () => {
+      this.checkBrowserType();
+    });
+  }
 
   render() {
     if (!this.state.loaded)
-      return <LoadingScreen completeLoading={this.completeLoading} />;
+      // return <LoadingScreen completeLoading={this.completeLoading} />;
+      return null;
 
     return (
       <div className="newco">

@@ -41,6 +41,16 @@ p {
   padding: 0 6.6%; // make sure this matches the $content-padding in variables.scss
 }
 
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 100%;
+  pointer-events: none;
+  opacity: 0;
+  z-index: -1;
+}
+
 .hidden {
   display: none;
 }
