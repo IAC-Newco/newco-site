@@ -45,7 +45,8 @@ class NewcoSite extends Component {
     this.state = {
       cursorPos: { x: null, y: null },
       loaded: false,
-      statToRender: null
+      statToRender: null,
+      updatedCursorCss: false
     };
   }
 
@@ -208,32 +209,6 @@ class NewcoSite extends Component {
     this.setState({ loaded: true });
   };
 
-  getContainerClassName(stat) {
-    if (stat === "DESIGN") {
-      return "newco__section-3__img-3-pulse-pulse";
-    } else {
-      let pulse = "";
-      const baseClass = `newco__section-3__img-${this.STATS[stat]}-container`;
-      if (!this.state.statToRender) pulse = `${baseClass}-pulse`;
-      return `${baseClass} ${pulse}`;
-    }
-  }
-
-  getStatImgClassName(stat) {
-    let display = "";
-    const baseClass = "newco__section-3__img";
-    if (this.STATS[stat] === this.state.statToRender) display = "fade-out";
-    return `${baseClass} ${display}`;
-  }
-
-  getStatClassName(stat) {
-    let display = "fade-in";
-    const baseClass = "newco__section-3__stat";
-    if (this.STATS[stat] !== this.state.statToRender) display = "hidden";
-
-    return `${baseClass} ${baseClass}--${stat.toLowerCase()} ${display}`;
-  }
-
   setStatToRender = (event, stat) => {
     let statToRender = this.STATS[stat] || null;
     this.setState({ statToRender: statToRender });
@@ -246,9 +221,27 @@ class NewcoSite extends Component {
         data-color="green"
         id="section-1"
       >
-        <img className="shape shape-1 fade-in" src={Shape1} alt="shape1" />
-        <img className="shape shape-2 fade-in" src={Shape2} alt="shape2" />
-        <img className="shape shape-3 fade-in" src={Shape3} alt="shape3" />
+        <img
+          className="shape shape-1 fade-in"
+          onMouseMove={this.updateCursorCss}
+          onMouseLeave={() => this.updateCursorCss(true)}
+          src={Shape1}
+          alt="shape1"
+        />
+        <img
+          className="shape shape-2 fade-in"
+          onMouseMove={this.updateCursorCss}
+          onMouseLeave={() => this.updateCursorCss(true)}
+          src={Shape2}
+          alt="shape2"
+        />
+        <img
+          className="shape shape-3 fade-in"
+          onMouseMove={this.updateCursorCss}
+          onMouseLeave={() => this.updateCursorCss(true)}
+          src={Shape3}
+          alt="shape3"
+        />
         <h1 className="newco__h1 newco__h1--1 fade-in-up-h1--1">
           Build, better.
         </h1>
@@ -378,6 +371,22 @@ class NewcoSite extends Component {
       </div>
     );
   }
+
+  updateCursorCss = (remove = false) => {
+    // if (document.querySelectorAll("div").length === 42) {
+    //   const cursor = document.querySelectorAll("div")[41];
+    //   if (remove) {
+    //     cursor.style.zIndex = 3;
+    //     cursor.style.removeProperty("mix-blend-mode");
+    //   } else {
+    //     debugger;
+    //     cursor.style.mixBlendMode = "exclusion";
+    //     debugger;
+    //     // cursor.style.removeProperty("z-index");
+    //   }
+    //   console.log("hit", remove, cursor);
+    // }
+  };
 
   render() {
     if (!this.state.loaded)

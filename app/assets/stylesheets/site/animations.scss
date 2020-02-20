@@ -131,21 +131,21 @@ $animation-duration: 1s;
   animation-name: fade-in;
   animation-duration: $animation-duration;
   animation-timing-function: ease-in-out;
-  animation-fill-mode: both;
+  animation-fill-mode: forwards;
 }
 
 .fade-out {
   animation-name: fade-out;
   animation-duration: 0.5s;
   animation-timing-function: ease-in-out;
-  animation-fill-mode: both;
+  animation-fill-mode: forwards;
 }
 
 .fade-in-up-h1--1 {
   animation-name: fade-in-up-to-50;
   animation-duration: $animation-duration;
   animation-timing-function: ease-in-out;
-  animation-fill-mode: both;
+  animation-fill-mode: forwards;
   animation-delay: 1s;
 }
 
@@ -153,14 +153,14 @@ $animation-duration: 1s;
   animation-name: fade-in-up-to-50;
   animation-duration: $animation-duration;
   animation-timing-function: ease-in-out;
-  animation-fill-mode: both;
+  animation-fill-mode: forwards;
 }
 
 .fade-in-up-p--1 {
   animation-name: fade-in-up-to-68;
   animation-duration: $animation-duration;
   animation-timing-function: ease-in-out;
-  animation-fill-mode: both;
+  animation-fill-mode: forwards;
   animation-delay: 1s;
 }
 
@@ -168,21 +168,21 @@ $animation-duration: 1s;
   animation-name: fade-in-up-to-68;
   animation-duration: $animation-duration;
   animation-timing-function: ease-in-out;
-  animation-fill-mode: both;
+  animation-fill-mode: forwards;
 }
 
 .fade-in-up-header-container--4 {
   animation-name: fade-in-up-to-50;
   animation-duration: $animation-duration;
   animation-timing-function: ease-in-out;
-  animation-fill-mode: both;
+  animation-fill-mode: forwards;
 }
 
 .fade-in-up-header-container--5 {
   animation-name: fade-in-up-to-50;
   animation-duration: $animation-duration;
   animation-timing-function: ease-in-out;
-  animation-fill-mode: both;
+  animation-fill-mode: forwards;
 }
 
 @media (min-width: $screen-lg) {
@@ -190,13 +190,13 @@ $animation-duration: 1s;
     animation-name: fade-in-up-to-55;
     animation-duration: $animation-duration;
     animation-timing-function: ease-in-out;
-    animation-fill-mode: both;
+    animation-fill-mode: forwards;
   }
 
   .fade-in-up-p--2 {
     animation-name: fade-in-up-to-65;
     animation-duration: $animation-duration;
     animation-timing-function: ease-in-out;
-    animation-fill-mode: both;
+    animation-fill-mode: forwards;
   }
 }
