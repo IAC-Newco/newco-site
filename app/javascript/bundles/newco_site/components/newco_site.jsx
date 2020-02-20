@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import $ from "jquery";
+import curDot from "cursor-dot";
+import isEl from "cursor-dot";
 
 // React.js components
 import LoadingScreen from "./loading_screen";
+import NewcoTeamOf from "./newco_team_of";
 
 // data
 import { startingPositions } from "../data/shapes_starting_positions";
@@ -28,11 +31,11 @@ class NewcoSite extends Component {
   constructor(props) {
     super(props);
     this.STATS = {
-      BRAND: 1,
-      DEV: 2,
-      DESIGN: 3,
-      GROWTH: 4,
-      MORE: 5
+      brand: 1,
+      dev: 2,
+      design: 3,
+      growth: 4,
+      more: 5
     };
     this.DIVISORS = {
       1: 60,
@@ -41,12 +44,14 @@ class NewcoSite extends Component {
       4: 40
     };
     this.state = {
+      cursorPos: { x: null, y: null },
       loaded: false,
       statToRender: null
     };
   }
 
   addScrollEvents() {
+    const that = this;
     const divisors = this.DIVISORS;
     const shape1 = document.getElementsByClassName("shape-1")[0];
     const shape2 = document.getElementsByClassName("shape-2")[0];
@@ -72,11 +77,12 @@ class NewcoSite extends Component {
     const c4 = $(".newco__header-container--4");
     const c5 = $(".newco__header-container--5");
 
-    $("body").scroll(function() {
+    $(window).scroll(function(event) {
       // SCROLL ANIMATION
-      let $window = $("body"),
-        $newco = $(".newco"),
-        $panel = $(".panel");
+      let $window = $(window);
+      let $newco = $("body");
+      let $panel = $(".panel");
+
       // Change 33% earlier than scroll position so colour is there when you arrive.
       let scroll = $window.scrollTop() + $window.height() / 3;
       $panel.each(function() {
@@ -122,7 +128,6 @@ class NewcoSite extends Component {
       } else if (screenSize >= 1024) {
         screenSize = "lg";
       }
-
       [
         shape1,
         shape2,
@@ -140,7 +145,6 @@ class NewcoSite extends Component {
         let shapeY = rect.top + scrollTop;
         let shapeIsRenderedOnScreen =
           window.scrollY + window.innerHeight >= shapeY;
-
         if (shapeIsRenderedOnScreen) {
           let group = startingPositions[i]["group"];
           let startingPosition = startingPositions[i][screenSize];
@@ -181,10 +185,23 @@ class NewcoSite extends Component {
     });
   }
 
+  setupCursorDot() {
+    const cursor = curDot({
+      borderColor: "#000",
+      diameter: 75
+    });
+
+    cursor.over(".newco__stat ", {
+      background: "#000",
+      scale: 3
+    });
+  }
+
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (!prevState.loaded && this.state.loaded) {
-      $(window).scrollTop();
+      const that = this;
       this.addScrollEvents();
+      this.setupCursorDot();
     }
   }
 
@@ -201,6 +218,13 @@ class NewcoSite extends Component {
       if (!this.state.statToRender) pulse = `${baseClass}-pulse`;
       return `${baseClass} ${pulse}`;
     }
+  }
+
+  getStatImgClassName(stat) {
+    let display = "";
+    const baseClass = "newco__section-3__img";
+    if (this.STATS[stat] === this.state.statToRender) display = "fade-out";
+    return `${baseClass} ${display}`;
   }
 
   getStatClassName(stat) {
@@ -259,99 +283,58 @@ class NewcoSite extends Component {
         <h3 className="newco__h3--3 content-padding">We're a team of...</h3>
         <div className="newco__section-3__grid">
           <div className="newco__section-3__row-1">
-            <div className="newco__brand">
-              <div className={this.getContainerClassName("BRAND")}>
-                <img
-                  className="newco__section-3__img"
-                  onMouseEnter={() => this.setStatToRender(event, "BRAND")}
-                  onMouseLeave={() => this.setStatToRender(event, null)}
-                  src={Brand}
-                  alt="brand"
-                />
-                <div
-                  className={this.getStatClassName("BRAND")}
-                  onMouseEnter={() => this.setStatToRender(event, "BRAND")}
-                  onMouseLeave={() => this.setStatToRender(null)}
-                >
-                  who have crafted 83 brand identities
-                </div>
-              </div>
-              <div className="newco__section-3__text">brand</div>
-              <div className="newco__section-3__text">strategists</div>
-            </div>
+            <NewcoTeamOf
+              imgSrc={Brand}
+              memberTitle={["brand", "strategist"]}
+              memberDescription="who have crafted 83 brand identities"
+              setStatToRender={this.setStatToRender}
+              stat="brand"
+              statToRender={this.state.statToRender}
+              stats={this.STATS}
+            />
           </div>
           <div className="newco__section-3__row-2">
-            <div className="newco__dev">
-              <div className={this.getContainerClassName("DEV")}>
-                <img
-                  className="newco__section-3__img"
-                  onMouseEnter={() => this.setStatToRender(event, "DEV")}
-                  onMouseLeave={() => this.setStatToRender(null)}
-                  src={Dev}
-                  alt="dev"
-                />
-                <div
-                  className={this.getStatClassName("DEV")}
-                  onMouseEnter={() => this.setStatToRender(event, "DEV")}
-                  onMouseLeave={() => this.setStatToRender(null)}
-                >
-                  who have deployed 70+ MVPs
-                </div>
-              </div>
-              <div className="newco__section-3__text">developers</div>
-            </div>
+            <NewcoTeamOf
+              imgSrc={Dev}
+              memberTitle={["developers"]}
+              memberDescription="who have deployed 70+ MVPs"
+              setStatToRender={this.setStatToRender}
+              stat="dev"
+              statToRender={this.state.statToRender}
+              stats={this.STATS}
+            />
           </div>
           <div className="newco__section-3__row-3">
-            <div className="newco__design">
-              <div className={this.getContainerClassName("DESIGN")}></div>
-              <div className="newco__section-3__img-3-container">
-                <img
-                  className="newco__section-3__img-3"
-                  onMouseEnter={() => this.setStatToRender(event, "DESIGN")}
-                  onMouseLeave={() => this.setStatToRender(null)}
-                  src={Design}
-                  alt="design"
-                />
-                <div
-                  className={this.getStatClassName("DESIGN")}
-                  onMouseEnter={() => this.setStatToRender(event, "DESIGN")}
-                  onMouseLeave={() => this.setStatToRender(null)}
-                >
-                  who have designed 2,729 screens
-                </div>
-              </div>
-              <div className="newco__section-3__text">designers</div>
-            </div>
+            <NewcoTeamOf
+              imgSrc={Design}
+              memberTitle={["designers"]}
+              memberDescription="who have designed 2,729 screens"
+              setStatToRender={this.setStatToRender}
+              stat="design"
+              statToRender={this.state.statToRender}
+              stats={this.STATS}
+            />
           </div>
           <div className="newco__section-3__row-4">
-            <div className="newco__growth">
-              <div className={this.getContainerClassName("GROWTH")}>
-                <img
-                  className="newco__section-3__img"
-                  onMouseEnter={() => this.setStatToRender(event, "GROWTH")}
-                  onMouseLeave={() => this.setStatToRender(null)}
-                  src={Growth}
-                  alt="growth"
-                />
-                <div
-                  className={this.getStatClassName("GROWTH")}
-                  onMouseEnter={() => this.setStatToRender(event, "GROWTH")}
-                  onMouseLeave={() => this.setStatToRender(null)}
-                >
-                  who have run 1,000s of ads
-                </div>
-              </div>
-              <div className="newco__section-3__text">growth</div>
-              <div className="newco__section-3__text">marketers</div>
-            </div>
+            <NewcoTeamOf
+              imgSrc={Growth}
+              memberTitle={["growth", "marketers"]}
+              memberDescription="who have run 1,000s of ads"
+              setStatToRender={this.setStatToRender}
+              stat="growth"
+              statToRender={this.state.statToRender}
+              stats={this.STATS}
+            />
           </div>
           <div className="newco__section-3__row-5">
-            <div className="newco__more">
-              <div className={this.getContainerClassName("MORE")}>
-                <img className="newco__section-3__img" src={More} alt="more" />
-              </div>
-              <div className="newco__section-3__text">And more...</div>
-            </div>
+            <NewcoTeamOf
+              imgSrc={More}
+              memberTitle={["And more..."]}
+              setStatToRender={this.setStatToRender}
+              stat="more"
+              statToRender={this.state.statToRender}
+              stats={this.STATS}
+            />
           </div>
         </div>
         <p className="newco__p--3 content-padding">
