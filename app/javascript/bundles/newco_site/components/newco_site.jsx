@@ -285,14 +285,6 @@ class NewcoSite extends Component {
     );
   }
 
-  // <h2 className="newco__h2 newco__h2--2">
-  //   We work with founders from Day 0
-  // </h2>
-  // <p className="newco__p--2">
-  //   providing them the team, tools, and capital to bring their ideas to
-  //   life.
-  // </p>
-
   renderSectionThree() {
     return (
       <div className="newco__section-3 panel" data-color="white">
