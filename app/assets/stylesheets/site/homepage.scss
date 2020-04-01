@@ -96,44 +96,61 @@ body {
   top: 0%;
   transform: translate(-50%, -50%);
 }
+.newco__content {
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  // transform: translate(-50%, -34%);
+  transform: translate(-50%, -50%);
+  width: $absolute-width-sm;
+  z-index: 3;
+}
 
 .newco__h1--1 {
-  left: 50%;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: $absolute-width-sm;
-  z-index: 3;
 }
+// .newco__h1--1 {
+//   // opacity: 0;
+//   // left: 50%;
+//   // position: absolute;
+//   // top: 50%;
+//   // transform: translate(-50%, -50%);
+//   // width: $absolute-width-sm;
+//   // z-index: 3;
+// }
 
-.newco__p--1 {
-  left: 50%;
-  opacity: 0;
-  position: absolute;
-  top: 68%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-}
-
-.newco__h2--2 {
-  left: 50%;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: $absolute-width-sm;
-  z-index: 3;
-}
-
+.newco__p--1,
 .newco__p--2 {
-  left: 50%;
-  opacity: 0;
-  position: absolute;
-  top: 68%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
+  margin: 20px auto;
 }
+// .newco__p--1 {
+//   margin: 0 auto;
+//   opacity: 0;
+//   left: 50%;
+//   position: absolute;
+//   top: 68%;
+//   transform: translate(-50%, -50%);
+//   z-index: 3;
+// }
+
+// .newco__h2--2 {
+//   left: 50%;
+//   opacity: 0;
+//   position: absolute;
+//   top: 50%;
+//   transform: translate(-50%, -50%);
+//   width: $absolute-width-sm;
+//   z-index: 3;
+// }
+//
+// .newco__p--2 {
+//   left: 50%;
+//   opacity: 0;
+//   position: absolute;
+//   top: 68%;
+//   transform: translate(-50%, -50%);
+//   z-index: 3;
+// }
 
 .newco__section-2 {
   // background: $blue;
@@ -488,6 +505,10 @@ body {
 }
 
 @media (min-width: $screen-md) and (max-width: #{$screen-lg - 1px}) {
+  // .newco__content {
+  //   transform: translate(-50%, -20%);
+  // }
+
   .newco__logo-container {
     left: 50px;
     top: 50px;
@@ -501,6 +522,9 @@ body {
 
   .newco__h1 {
     margin-bottom: 60px;
+    &--1 {
+      margin-bottom: 0;
+    }
   }
 
   .shape-1 {
@@ -563,6 +587,9 @@ body {
 }
 
 @media (min-width: $screen-lg) {
+  .newco__content {
+    transform: translate(-50%, -12%);
+  }
   .newco__logo-container {
     left: 50px;
     top: 60px;
@@ -605,7 +632,7 @@ body {
   }
 
   .newco__p--1 {
-    margin: 0 auto;
+    // margin: 0 auto;
     width: 63%;
   }
 

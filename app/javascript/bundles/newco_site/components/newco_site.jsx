@@ -69,6 +69,7 @@ class NewcoSite extends Component {
     const h22 = $(".newco__h2--2");
     const p2 = $(".newco__p--2");
     const h33 = $(".newco__h3--3");
+    const content2 = $(".newco__content--2");
     const row1 = $(".newco__section-3__row-1");
     const row2 = $(".newco__section-3__row-2");
     const row3 = $(".newco__section-3__row-3");
@@ -102,8 +103,9 @@ class NewcoSite extends Component {
 
           let className = $this[0].classList[0];
           if (className === "newco__section-2") {
-            h22.addClass("fade-in-up-h2--2");
-            p2.addClass("fade-in-up-p--2");
+            // h22.addClass("fade-in-up-h2--2");
+            // p2.addClass("fade-in-up-p--2");
+            content2.addClass("fade-in-up-h2--2");
           } else if (className == "newco__section-3") {
             h33.addClass("fade-in");
             row1.addClass("fade-in");
@@ -253,13 +255,14 @@ class NewcoSite extends Component {
           src={Shape3}
           alt="shape3"
         />
-        <h1 className="newco__h1 newco__h1--1 fade-in-up-h1--1">
-          Build, better.
-        </h1>
-        <p className="newco__p newco__p--1 fade-in-up-p--1">
-          Newco is a platform for exceptional entrepreneurs to build businesses
-          - supported by an ecosystem that has produced 10 public companies.
-        </p>
+        <div className="newco__content fade-in-up-h1--1">
+          <h1 className="newco__h1 newco__h1--1">Build, better.</h1>
+          <p className="newco__p newco__p--1">
+            Newco is a platform for exceptional entrepreneurs to build
+            businesses - supported by an ecosystem that has produced 10 public
+            companies.
+          </p>
+        </div>
       </div>
     );
   }
@@ -269,13 +272,15 @@ class NewcoSite extends Component {
       <div className="newco__section-2 content-padding panel" data-color="blue">
         <img className="shape shape-4 fade-in" src={Shape4} alt="shape4" />
         <img className="shape shape-5" src={Shape5} alt="shape5" />
-        <h2 className="newco__h2 newco__h2--2">
-          We work with founders from Day 0
-        </h2>
-        <p className="newco__p--2">
-          providing them the team, tools, and capital to bring their ideas to
-          life.
-        </p>
+        <div className="newco__content newco__content--2">
+          <h2 className="newco__h2 newco__h2--2">
+            We work with founders from Day 0
+          </h2>
+          <p className="newco__p--2">
+            providing them the team, tools, and capital to bring their ideas to
+            life.
+          </p>
+        </div>
       </div>
     );
   }
