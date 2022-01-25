@@ -5,6 +5,7 @@ import curDot from "../utils/cursor_dot";
 // React.js components
 import LoadingScreen from "./loading_screen";
 import NewcoTeamOf from "./newco_team_of";
+import CareersButton from "./careers_button";
 
 // data
 import { startingPositions } from "../data/shapes_starting_positions";
@@ -34,20 +35,20 @@ class NewcoSite extends Component {
       dev: 2,
       design: 3,
       growth: 4,
-      more: 5
+      more: 5,
     };
     this.DIVISORS = {
       1: 60,
       2: 80,
       3: 100,
-      4: 40
+      4: 40,
     };
     this.state = {
       cursorPos: { x: null, y: null },
       isChrome: false,
       loaded: false,
       statToRender: null,
-      updatedCursorCss: false
+      updatedCursorCss: false,
     };
   }
 
@@ -79,7 +80,7 @@ class NewcoSite extends Component {
     const c4 = $(".newco__header-container--4");
     const c5 = $(".newco__header-container--5");
 
-    $(window).scroll(function(event) {
+    $(window).scroll(function (event) {
       // SCROLL ANIMATION
       let $window = $(window);
       let $newco = $("body");
@@ -87,7 +88,7 @@ class NewcoSite extends Component {
 
       // Change 33% earlier than scroll position so colour is there when you arrive.
       let scroll = $window.scrollTop() + $window.height() / 3;
-      $panel.each(function() {
+      $panel.each(function () {
         let $this = $(this);
         // if position is within range of this panel.
         // So position of (position of top of div <= scroll position) && (position of bottom of div > scroll position).
@@ -96,7 +97,7 @@ class NewcoSite extends Component {
           $this.position().top <= scroll &&
           $this.position().top + $this.height() > scroll
         ) {
-          $newco.removeClass(function(index, css) {
+          $newco.removeClass(function (index, css) {
             return (css.match(/(^|\s)color-\S+/g) || []).join(" ");
           });
           $newco.addClass("color-" + $(this).data("color"));
@@ -140,7 +141,7 @@ class NewcoSite extends Component {
         shape6,
         shape7,
         shape8,
-        shape9
+        shape9,
       ].forEach((shape, i) => {
         let rect = shape.getBoundingClientRect();
         let scrollTop =
@@ -191,12 +192,12 @@ class NewcoSite extends Component {
   setupCursorDot() {
     const cursor = curDot({
       borderColor: "#000",
-      diameter: 75
+      diameter: 75,
     });
 
     cursor.over(".newco__stat", {
       background: "#000000",
-      scale: 3
+      scale: 3,
     });
   }
 
@@ -259,7 +260,7 @@ class NewcoSite extends Component {
           <h1 className="newco__h1 newco__h1--1">Build, better.</h1>
           <p className="newco__p newco__p--1">
             Newco is a platform for exceptional entrepreneurs to build
-            businesses - supported by an ecosystem that has produced 10 public
+            businesses supported by an ecosystem that has produced 10 public
             companies.
           </p>
         </div>
@@ -278,7 +279,7 @@ class NewcoSite extends Component {
           </h2>
           <p className="newco__p--2">
             providing them the team, tools, and capital to bring their ideas to
-            life.
+            life
           </p>
         </div>
       </div>
@@ -364,7 +365,7 @@ class NewcoSite extends Component {
         <div className="newco__header-container newco__header-container--4">
           <h2 className="newco__h2">
             We minimize distractions and maximize efficiency so great founders
-            can focus.
+            can focus
           </h2>
         </div>
       </div>
@@ -384,6 +385,7 @@ class NewcoSite extends Component {
             Build With Us
           </a>
         </div>
+        <CareersButton className="newco__section-5__button" />
       </div>
     );
   }
@@ -430,6 +432,7 @@ class NewcoSite extends Component {
           </div>
           <div className="newco__logo-text">AN IAC INCUBATOR</div>
         </div>
+        <CareersButton className="header__button fade-in" />
         {this.renderSectionOne()}
         {this.renderSectionTwo()}
         {this.renderSectionThree()}

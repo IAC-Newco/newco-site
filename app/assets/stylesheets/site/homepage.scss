@@ -41,6 +41,29 @@ body {
   background: $white;
 }
 
+.careers-button {
+  display: block;
+  color: white;
+  background: $black;
+  width: 328px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: "Biryani", sans-serif;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.header__button {
+  position: absolute;
+  z-index: 1;
+  width: auto;
+  left: 7.7%;
+  right: 7.7%;
+  top: 80px;
+}
+
 .newco__logo-container {
   display: flex;
   left: 7.7%;
@@ -422,6 +445,16 @@ body {
   }
 }
 
+.newco__section-5__button {
+  position: absolute;
+  bottom: 30px;
+  left: 7.7%;
+  right: 7.7%;
+  width: auto;
+
+  // right: 70px;
+}
+
 // shapes
 .shape {
   // mix-blend-mode: exclusion;
@@ -501,6 +534,19 @@ body {
   .newco__section-3__stat--more {
     // left: 30px;
     // right: unset;
+  }
+
+  .header__button {
+    width: 328px;
+    top: 30px;
+    right: 70px;
+    left: unset;
+  }
+  .newco__section-5__button {
+    width: 328px;
+    bottom: 49px;
+    right: 70px;
+    left: unset;
   }
 }
 
@@ -583,6 +629,10 @@ body {
 
   .newco__section-3__grid {
     padding: 0 11%;
+  }
+
+  .header__button {
+    top: 30px;
   }
 }
 
@@ -783,6 +833,10 @@ body {
     max-width: 350px;
     left: 30%;
     width: 21.5%;
+  }
+
+  .header__button {
+    top: 48px;
   }
 }
 
