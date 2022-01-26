@@ -1,0 +1,80 @@
+.wrapper {
+  background-color: white;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex: 1;
+}
+
+.desc {
+  font-size: 18px;
+  line-height: 24px;
+  font-family: "Biryani", sans-serif;
+  margin-top: 6px;
+}
+
+.headerWrapper,
+.footerWrapper {
+  position: relative;
+  background-color: #b3b795;
+  overflow: hidden;
+}
+
+.circle {
+  position: absolute;
+  width: 288px;
+  height: 288px;
+  border-radius: 50%;
+}
+
+.headerWrapper {
+  padding: 82px 70px 47px 70px;
+}
+
+.logoWrapper {
+  width: 186px;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.logoImgWrapper {
+  width: 100%;
+}
+
+.headerTrapezoid {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.circle__blue {
+  background-color: #beccd5;
+  right: -144px;
+  bottom: -144px;
+}
+
+.circle__purple {
+  background-color: #d8bddc;
+  right: -144px;
+  bottom: -87px;
+}
+
+.footerWrapper {
+  height: 420px;
+  width: 100%;
+}
+.footerTrapezoid {
+  position: absolute;
+  width: 658px;
+  img {
+    width: 100%;
+    height: auto;
+  }
+  top: -250px;
+  left: -180px;
+}

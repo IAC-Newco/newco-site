@@ -1,6 +1,6 @@
 import React from "react";
 import Home from "./newco_site";
-import CareersPage from "./careers_page";
+import CareersPage from "./CareersPage/careers_page";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
