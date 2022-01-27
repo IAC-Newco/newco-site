@@ -10,7 +10,14 @@ function CareersPage() {
   return (
     <div className={styles.wrapper}>
       <Header />
-      <div className={styles.content}></div>
+      <div className={styles.content}>
+        <div
+          class="jv-careersite"
+          data-careersite="newco-careers"
+          data-force-redirect
+        ></div>
+        <script src="//jobs.jobvite.com/__assets__/scripts/careersite/public/iframe.js"></script>
+      </div>
       <Footer />
     </div>
   );
