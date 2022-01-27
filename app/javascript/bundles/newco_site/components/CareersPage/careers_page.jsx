@@ -13,7 +13,8 @@ function CareersPage() {
       <div className={styles.content}>
         <div
           class="jv-careersite"
-          data-careersite="newco-careers"
+          data-careersite="newco"
+          jobvite-iframeParameter="true"
           data-force-redirect
         ></div>
         <script src="//jobs.jobvite.com/__assets__/scripts/careersite/public/iframe.js"></script>
