@@ -1,7 +1,6 @@
 import React from "react";
 import Logo from "images/logo.png";
 import TrapezoidImg from "images/shapes/trapezoid.png";
-import styles from "./CareersPage.module.scss";
 
 function Header() {
   return (

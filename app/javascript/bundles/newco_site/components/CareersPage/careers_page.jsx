@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import Header from "./Header";
 import Footer from "./Footer";
-import styles from "./CareersPage.module.scss";
-import { Helmet } from "react-helmet-async";
 
 function CareersPage() {
   useEffect(() => {

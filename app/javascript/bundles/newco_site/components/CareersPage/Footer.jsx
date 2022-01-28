@@ -1,6 +1,5 @@
 import React from "react";
 import ShapeImg from "images/shapes/shape4.png";
-import styles from "./CareersPage.module.scss";
 
 function Footer() {
   return (
