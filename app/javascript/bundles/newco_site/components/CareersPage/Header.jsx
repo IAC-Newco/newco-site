@@ -5,16 +5,16 @@ import styles from "./CareersPage.module.scss";
 
 function Header() {
   return (
-    <div className={styles.headerWrapper}>
-      <div className={styles.headerTrapezoid}>
+    <div className="header-wrapper">
+      <div className="header__trapezoid">
         <img src={TrapezoidImg} alt="" />
       </div>
-      <div className={`${styles.circle} ${styles.circle__blue}`}></div>
-      <div className={styles.logoWrapper}>
-        <div className={styles.logoImgWrapper}>
+      <div className="circle circle__blue"></div>
+      <div className="header__logo-wrapper">
+        <div className="header__logo-img-wrapper">
           <img src={Logo} alt="logo" />
         </div>
-        <div className={styles.desc}>AN IAC INCUBATOR</div>
+        <div className="header__desc">AN IAC INCUBATOR</div>
       </div>
     </div>
   );

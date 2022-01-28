@@ -4,11 +4,11 @@ import styles from "./CareersPage.module.scss";
 
 function Footer() {
   return (
-    <div className={styles.footerWrapper}>
-      <div className={styles.footerTrapezoid}>
+    <div className="footer-wrapper">
+      <div className="footer__trapezoid">
         <img src={ShapeImg} alt="" />
       </div>
-      <div className={`${styles.circle} ${styles.circle__purple}`}></div>
+      <div className="circle circle__purple"></div>
     </div>
   );
 }

@@ -19,12 +19,12 @@ function CareersPage() {
   //   };
   // }, []);
   return (
-    <div className={styles.wrapper}>
+    <div className="careers-wrapper">
       <Helmet>
         <script src="//jobs.jobvite.com/__assets__/scripts/careersite/public/iframe.js"></script>
       </Helmet>
       <Header />
-      <div className={styles.content}>
+      <div className="careers__content">
         <div
           className="jv-careersite"
           data-careersite="jobs.jobvite.com/newco"
