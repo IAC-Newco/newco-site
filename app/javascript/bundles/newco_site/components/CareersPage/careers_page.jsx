@@ -15,13 +15,13 @@ function CareersPage() {
   //   document.body.appendChild(script);
   //   return () => {
   //     document.body.removeChild(script);
-  //   };
+  // };
   // }, []);
   return (
     <div className="careers-wrapper">
-      <Helmet>
+      {/*  <Helmet>
         <script src="//jobs.jobvite.com/__assets__/scripts/careersite/public/iframe.js"></script>
-      </Helmet>
+      </Helmet>*/}
       <Header />
       <div className="careers__content">
         <div
