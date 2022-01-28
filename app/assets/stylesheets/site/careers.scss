@@ -7,6 +7,11 @@
 }
 .careers__content {
   flex: 1;
+  width: 100%;
+  max-width: 1190px;
+  padding: 0 25px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .header__desc {
