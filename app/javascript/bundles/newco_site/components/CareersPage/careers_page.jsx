@@ -7,21 +7,9 @@ function CareersPage() {
   useEffect(() => {
     document.body.style.backgroundColor = "white";
   }, []);
-  // useEffect(() => {
-  //   const script = document.createElement("script");
-  //   script.src =
-  //     "//jobs.jobvite.com/__assets__/scripts/careersite/public/iframe.js";
-  //   script.async = true;
-  //   document.body.appendChild(script);
-  //   return () => {
-  //     document.body.removeChild(script);
-  // };
-  // }, []);
+
   return (
     <div className="careers-wrapper">
-      <Helmet>
-        <script src="//jobs.jobvite.com/__assets__/scripts/careersite/public/iframe.js"></script>
-      </Helmet>
       <Header />
       <div className="careers__content">
         <div
@@ -30,6 +18,7 @@ function CareersPage() {
           jobvite-iframeParameter="true"
           data-force-redirect
         ></div>
+        <script src="//jobs.jobvite.com/__assets__/scripts/careersite/public/iframe.js"></script>
       </div>
       <Footer />
     </div>
