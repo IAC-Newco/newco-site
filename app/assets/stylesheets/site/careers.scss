@@ -33,8 +33,14 @@
 .header-wrapper {
   padding: 82px 70px 47px 70px;
 }
-
+.header__link {
+  text-decoration: none;
+  color: black;
+  display: block;
+  width: 186px;
+}
 .header__logo-wrapper {
+  display: block;
   width: 186px;
   img {
     width: 100%;
