@@ -19,9 +19,9 @@ function CareersPage() {
   // }, []);
   return (
     <div className="careers-wrapper">
-      {/*  <Helmet>
+      <Helmet>
         <script src="//jobs.jobvite.com/__assets__/scripts/careersite/public/iframe.js"></script>
-      </Helmet>*/}
+      </Helmet>
       <Header />
       <div className="careers__content">
         <div
