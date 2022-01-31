@@ -1,13 +1,11 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 function CareersButton({ className }) {
   return (
-    <a
-      className={`careers-button ${className}`}
-      href="https://jobs.jobvite.com/newco/jobs"
-    >
+    <Link className={`careers-button ${className}`} to="/careers">
       OPEN ROLES
-    </a>
+    </Link>
   );
 }
 

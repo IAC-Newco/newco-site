@@ -55,6 +55,14 @@ p {
   display: none;
 }
 
+img {
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 @media (min-width: 768px) {
   h1 {
     font-size: 100px;
