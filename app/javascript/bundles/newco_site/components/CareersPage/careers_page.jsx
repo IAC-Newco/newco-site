@@ -11,16 +11,18 @@ function CareersPage() {
   return (
     <div className="careers-wrapper">
       <Helmet>
-        <script src="//jobs.jobvite.com/__assets__/scripts/careersite/public/iframe.js"></script>
+        {/* <script src="//jobs.jobvite.com/__assets__/scripts/careersite/public/iframe.js"></script> */}
+        <script src="https://boards.greenhouse.io/embed/job_board/js?for=newco"></script>
       </Helmet>
       <Header />
       <div className="careers__content">
-        <div
+        {/* <div
           className="jv-careersite"
           data-careersite="newco"
           jobvite-iframeParameter="true"
           data-force-redirect
-        ></div>
+        ></div> */}
+        <div id="grnhse_app"></div>
       </div>
       <Footer />
     </div>
