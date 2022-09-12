@@ -1,18 +1,18 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.4'
+ruby '>= 2.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
-gem 'pg', '>= 0.18', '< 2.0'
+gem 'pg', '>= 1.4', '< 2.0'
 gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
-gem 'webpacker', '~> 4.0'
+gem 'shakapacker'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'react_on_rails', '11.1.4'
+gem 'react_on_rails', '~> 13'
 gem 'foreman'
 
 group :development, :test do
