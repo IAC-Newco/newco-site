@@ -23,6 +23,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "engines": {
-    "node": "18.x"
+    "node": "18.x",
+    "npm": "6.x"
   }
 }
