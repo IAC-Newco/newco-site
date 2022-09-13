@@ -180,7 +180,7 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
-    shakapacker (6.5.2)
+    shakapacker (6.0.0.rc.13)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
@@ -239,7 +239,7 @@ DEPENDENCIES
   react_on_rails (~> 13)
   sass-rails (>= 6)
   selenium-webdriver
-  shakapacker
+  shakapacker (= 6.0.0.rc.13)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
