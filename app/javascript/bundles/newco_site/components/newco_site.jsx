@@ -35,20 +35,20 @@ class NewcoSite extends Component {
       dev: 2,
       design: 3,
       growth: 4,
-      more: 5,
+      more: 5
     };
     this.DIVISORS = {
       1: 60,
       2: 80,
       3: 100,
-      4: 40,
+      4: 40
     };
     this.state = {
       cursorPos: { x: null, y: null },
       isChrome: false,
       loaded: false,
       statToRender: null,
-      updatedCursorCss: false,
+      updatedCursorCss: false
     };
   }
 
@@ -141,7 +141,7 @@ class NewcoSite extends Component {
         shape6,
         shape7,
         shape8,
-        shape9,
+        shape9
       ].forEach((shape, i) => {
         let rect = shape.getBoundingClientRect();
         let scrollTop =
@@ -192,12 +192,12 @@ class NewcoSite extends Component {
   setupCursorDot() {
     const cursor = curDot({
       borderColor: "#000",
-      diameter: 75,
+      diameter: 75
     });
 
     cursor.over(".newco__stat", {
       background: "#000000",
-      scale: 3,
+      scale: 3
     });
   }
 

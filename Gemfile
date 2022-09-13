@@ -8,11 +8,11 @@ gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 gem 'pg', '>= 1.4', '< 2.0'
 gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
-gem 'shakapacker', '6.0.0.rc.13'
+gem 'shakapacker', '~> 6.5.1'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'react_on_rails', '~> 13'
+gem 'react_on_rails', '~> 13.1'
 gem 'foreman'
 
 group :development, :test do
