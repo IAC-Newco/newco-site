@@ -12,7 +12,7 @@ function CareersPage() {
     <div className="careers-wrapper">
       <Helmet>
         {/* <script src="//jobs.jobvite.com/__assets__/scripts/careersite/public/iframe.js"></script> */}
-        <script src="https://boards.greenhouse.io/embed/job_board/js?for=newco"></script>
+        {/* <script src="https://boards.greenhouse.io/embed/job_board/js?for=newco"></script> */}
       </Helmet>
       <Header />
       <div className="careers__content">
