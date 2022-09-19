@@ -8,10 +8,22 @@ function CareersPage() {
     document.body.style.backgroundColor = "white";
   }, []);
 
+  useEffect(() => {
+    if (window && document) {
+      const script = document.createElement("script");
+      const body = document.getElementsByTagName("body")[0];
+      script.src = "https://boards.greenhouse.io/embed/job_board/js?for=newco";
+      // script.async = true;
+      body.appendChild(script);
+      return () => {
+        document.body.removeChild(script);
+      };
+    }
+  }, []);
+
   return (
     <div className="careers-wrapper">
       <Helmet>
-        {/* <script src="//jobs.jobvite.com/__assets__/scripts/careersite/public/iframe.js"></script> */}
         {/* <script src="https://boards.greenhouse.io/embed/job_board/js?for=newco"></script> */}
       </Helmet>
       <Header />
