@@ -7,9 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag "newco-bundle" %>
-  </head>
+    <%= favicon_link_tag asset_path('shapes/shape9.png') %>
 
-  <body>
-    <%= yield %>
-  </body>
+
+    </head>
+    
+    <body>
+     <%= yield %>
+    </body>
 </html>

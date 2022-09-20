@@ -1,11 +1,17 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function CareersButton({ className }) {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    location.href = "/careers";
+    // navigate("/careers");
+    // navigate(0);
+  };
   return (
-    <Link className={`careers-button ${className}`} to="/careers">
+    <button className={`careers-button ${className}`} onClick={handleClick}>
       OPEN ROLES
-    </Link>
+    </button>
   );
 }
 
