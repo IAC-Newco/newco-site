@@ -4,8 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 function CareersButton({ className }) {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate("/careers");
-    navigate(0);
+    location.href = "/careers";
+    // navigate("/careers");
+    // navigate(0);
   };
   return (
     <button className={`careers-button ${className}`} onClick={handleClick}>
